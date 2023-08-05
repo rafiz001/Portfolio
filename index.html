@@ -1,0 +1,72 @@
+<html>
+    <head>
+    <title>Anim</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <style>
+            .full-screen{
+                width: 100%;
+                height: 100%;
+                background-color: #5d5353;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+               
+            }
+            .centerDiv{
+                display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 700px ;
+            }
+            .itemimg{
+               height: 200px;
+               position: absolute;
+                filter: hue-rotate(90deg);
+                z-index: 3;
+                border: 3px solid white;
+
+            }
+            .item2img{
+                height: 200px;
+                filter: hue-rotate(90deg);
+                rotate: 2deg;
+                z-index: 2;
+                border: 3px solid white;
+            }
+            .itemimg:hover{
+                rotate: -3deg;
+                transform: scale(1.1);
+                filter: none;
+                transition: 0.4s;
+               
+            }
+            .itemimg:hover+.item2img{
+                rotate: 3deg;
+                transform: scale(1.1);
+                filter: none;
+                transition: 0.4s;
+                
+            }
+
+
+
+
+
+
+
+        </style>
+    </head>
+    <div class="full-screen">
+    <div class="centerDiv">
+        <img  src="1.jpg" alt=""  class="itemimg">
+        <img src="1.2.jpg" class="item2img">
+    </div>
+
+
+    </div>
+    <body>
+
+    </body>
+</html>
