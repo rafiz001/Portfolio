@@ -59,40 +59,63 @@
 
         }
        
+        .borderI{
+            border: 3px solid white;
+            height: 200px;
+            width: 350px;
+            z-index: 5;
+            
+            position: absolute;
+            background: #C2FA7C;
+            
+        }
+        .borderII{
+            border: 3px solid white;
+            height: 200px;
+            width: 350px;
+            z-index: 3;
+            position: absolute;
+            transform: rotate(2deg);
 
+            background: #C2FA7C;
+        }
         .itemimg {
             height: 200px;
             width: 350px;
             position: absolute;
-            filter: hue-rotate(-90deg);
-            z-index: 3;
-            border: 3px solid white;
+            /* filter: url(filter.svg?i=99#filter); */
+            mix-blend-mode: multiply;
+            
 
+            
         }
 
         .item2img {
             height: 200px;
             width: 350px;
-            filter: hue-rotate(-90deg);
-            rotate: 2deg;
-            z-index: 2;
-            border: 3px solid white;
+            filter: url(filter.svg?i=99#filter);
+            
+            mix-blend-mode: multiply;
+            
+            
         }
 
-        .itemimg:hover {
+      
+        
+
+         
+             .borderI:hover+.borderII {
+                rotate: 3deg;
+                transform: scale(1.1);
+                background: transparent;
+                transition: 0.4s;
+    
+            }
+        .borderI:hover{
             rotate: -3deg;
             transform: scale(1.1);
-            filter: none;
+            background-color: transparent;
             transition: 0.4s;
-
-        }
-
-        .itemimg:hover+.item2img {
-            rotate: 3deg;
-            transform: scale(1.1);
-            filter: none;
-            transition: 0.4s;
-
         }
         
 .navigator {
@@ -130,8 +153,8 @@
     height: 50px;
     width: 100px;
     padding-top: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
     text-align: center;
     color: white;
 }
@@ -140,31 +163,33 @@
 
 <div class="full-screen">
     <div class="leftDiv">
-        <img src="4.jpg" alt="" class="itemimg">
-        <img src="1.2.jpg" class="item2img">
+       <span class="borderI" > <img src="4.jpg" alt="" class="itemimg"></span>
+        <span class="borderII" ><img src="1.2.jpg" class="item2img"></span>
     </div>
 
     <div class="centerDiv">
-        <img src="1.jpg" alt="" class="itemimg">
-        <img src="1.2.jpg" class="item2img">
+        <span class="borderI" > <img src="1.jpg" alt="" class="itemimg"></span>
+        <span class="borderII" ><img src="1.2.jpg" class="item2img"></span>
     </div>
 
 
     <div class="rightDiv">
-        <img src="2.jpg" alt="" class="itemimg">
-        <img src="1.2.jpg" class="item2img">
+        <span class="borderI" > <img src="2.jpg" alt="" class="itemimg"></span>
+        <span class="borderII" ><img src="1.2.jpg" class="item2img"></span>
     </div>
 
 
 
    
 
-
+ 
 
 </div>
 <div class="navigator box" id="navigator">
     <br><div class="navTitle" id="navTitle">Rafiz</div>
-    <div class="arrowBox"> <img class="leftButton" id="leftButton" src="buttonRight.svg"><div id="description">2023<div style="font-size: xx-large;"> August</div></div><img class="rightButton" id="rightButton" src="buttonRight.svg"></div>
+    <div class="arrowBox"> <img class="leftButton" id="leftButton" src="buttonRight.svg">
+    <div id="description">2023<div style="font-size: 20;"> February</div></div>
+    <img class="rightButton" id="rightButton" src="buttonRight.svg"></div>
 
 </div>
 
@@ -181,7 +206,7 @@
     });
     document.getElementById("leftButton").addEventListener("click", function(){
         current--;
-        if(current<0){
+        if(current<=0){
             current=1;
         }
         scroller();
@@ -214,7 +239,7 @@ document.getElementById('navTitle').innerHTML = current+"/"+total;
     }
     else{
         current--;
-        if(current<0){
+        if(current<=0){
             current=1;
         }
         scroller();
