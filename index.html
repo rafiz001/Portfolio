@@ -9,50 +9,59 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        :root{
+            
+            --width1:37%;
+            
+            --height1:25%;
+        }
         body {
-            background-color: #5d5353;
+            
             overflow: hidden;
             font-family: 'Roboto', sans-serif;
+            
+            background: url(noise.jpeg);
         }
 
         .full-screen {
-
+            
+            background-color: #2937397e;
             height: 100%;
-            margin: 0;
-            display: grid;
-            grid-template-columns: 5% 90% 5%;
-            grid-template-rows: 100%;
+            width: 100%;
+            position: absolute;
+            top:0;
+            left:0;
            
 
         }
 
         .centerDiv {
-            display: flex;
-            justify-content: center;
-
-            margin-top: 10%;
+            
+            left:var(--width1);
+            top:var(--height1);
+            position: fixed;
+            
            
         }
 
         .rightDiv {
            
-            display: flex;
-            position: relative;
-            justify-content:  center;
+            left:85%;
+            top:var(--height1);
+            position: fixed;
+            padding : 5%;
             transform: rotate(+15deg);
-            margin: 300% 0% 0% 0%;
+            
             
            
         }
       
 
         .leftDiv {
-            display: flex;
-            position: relative;
-            justify-content: center;
-
-            margin: 300% 0% 0% 0%;
-
+            left:-25%;
+            top:var(--height1);
+            position: fixed;
+            padding : 10%;
             transform: rotate(-15deg);
           
             
@@ -83,7 +92,7 @@
             height: 200px;
             width: 350px;
             position: absolute;
-            /* filter: url(filter.svg?i=99#filter); */
+           
             mix-blend-mode: multiply;
             
 
@@ -93,7 +102,7 @@
         .item2img {
             height: 200px;
             width: 350px;
-            filter: url(filter.svg?i=99#filter);
+            
             
             mix-blend-mode: multiply;
             
@@ -162,18 +171,18 @@
 </head><body>
 
 <div class="full-screen">
-    <div class="leftDiv">
+    <div class="leftDiv" id="leftDiv">
        <span class="borderI" > <img src="4.jpg" alt="" class="itemimg"></span>
         <span class="borderII" ><img src="1.2.jpg" class="item2img"></span>
     </div>
 
-    <div class="centerDiv">
+    <div class="centerDiv" id="centerDiv">
         <span class="borderI" > <img src="1.jpg" alt="" class="itemimg"></span>
         <span class="borderII" ><img src="1.2.jpg" class="item2img"></span>
     </div>
 
 
-    <div class="rightDiv">
+    <div class="rightDiv" id="rightDiv">
         <span class="borderI" > <img src="2.jpg" alt="" class="itemimg"></span>
         <span class="borderII" ><img src="1.2.jpg" class="item2img"></span>
     </div>
@@ -194,8 +203,18 @@
 </div>
 
 <script>
+    // var r = document.querySelector(':root');
+    // r.style.setProperty('--width', window.innerWidth + "px");
+    // r.style.setProperty('--height', window.innerHeight + "px");
+    // r.style.setProperty('--width0', 0 + "px");
+    // r.style.setProperty('--width1', (window.innerWidth/2)-176 + "px");
+    // r.style.setProperty('--width2', window.innerWidth-176 + "px");
+  
+    // r.style.setProperty('--height1', (window.innerHeight/2)-200 + "px");
+    
 
-    let total=10;
+
+    let total=3;
     let current=1;
     document.getElementById("rightButton").addEventListener("click", function(){
         current++;
@@ -203,6 +222,7 @@
             current=1;
         }
         scroller();
+        myMove(current-1);
     });
     document.getElementById("leftButton").addEventListener("click", function(){
         current--;
@@ -210,6 +230,7 @@
             current=1;
         }
         scroller();
+        myMove(current-1);
     });
 
 
@@ -220,7 +241,7 @@
         var mySVG = `<svg width="430" height="430" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="215" cy="215" r="200" stroke="#ffffff" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round"
         stroke-dasharray="8 8" />
-    <circle cx="215" cy="215" r="214" stroke="#00ff48" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round"
+    <circle cx="215" cy="215" r="210" stroke="#C2FA7C" stroke-width="3px" stroke-linecap="round" stroke-linejoin="round"
         stroke-dasharray="`+scrlBar+`,2000" transform="rotate(180,215,215)"/>
    </svg>`;
 
@@ -245,6 +266,30 @@ document.getElementById('navTitle').innerHTML = current+"/"+total;
         scroller();
     }
 });
+
+let img1=["4.jpg","1.jpg","2.jpg"];
+let img2=[null,"1.2.jpg","1.2.jpg"];
+
+var id = null;
+function myMove(counter) {
+  var left = document.getElementById("leftDiv");
+  var center = document.getElementById("centerDiv");
+  var right = document.getElementById("rightDiv");   
+  var pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 1);
+  function frame() {
+    if (pos == 10) {
+      clearInterval(id);
+    } else {
+      pos++; 
+        left.innerHTML=`<span class="borderI" > <img src="`+img1[counter-1]+`" alt="" class="itemimg"></span><span class="borderII" ><img src="`+img2[0]+`" class="item2img"></span>`;
+        center.innerHTML=`<span class="borderI" > <img src="`+img1[counter]+`" alt="" class="itemimg"></span><span class="borderII" ><img src="`+img2[1]+`" class="item2img"></span>`;
+        right.innerHTML=`<span class="borderI" > <img src="`+img1[counter+1]+`" alt="" class="itemimg"></span><span class="borderII" ><img src="`+img2[2]+`" class="item2img"></span>`;
+    }
+  }
+}
+
 </script>
 
 </body>
