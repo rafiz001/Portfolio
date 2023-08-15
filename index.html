@@ -163,7 +163,7 @@
 
 </div>
 <div class="navigator box" id="navigator">
-    <div class="navTitle"><br>Rafiz</div>
+    <br><div class="navTitle" id="navTitle">Rafiz</div>
     <div class="arrowBox"> <img class="leftButton" id="leftButton" src="buttonRight.svg"><div id="description">2023<div style="font-size: xx-large;"> August</div></div><img class="rightButton" id="rightButton" src="buttonRight.svg"></div>
 
 </div>
@@ -191,7 +191,7 @@
 
     scroller();
     function scroller(){
-        var scrlBar=700*(current/total);
+        var scrlBar=650*(current/total);
         var mySVG = `<svg width="430" height="430" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="215" cy="215" r="200" stroke="#ffffff" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round"
         stroke-dasharray="8 8" />
@@ -200,6 +200,7 @@
    </svg>`;
 
 document.getElementById('navigator').style.backgroundImage = "url('data:image/svg+xml;base64," + window.btoa(mySVG) + "')";
+document.getElementById('navTitle').innerHTML = current+"/"+total;
 
     }
 
