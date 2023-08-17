@@ -1,6 +1,35 @@
 <svg width="430" height="430" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="215" cy="215" r="200" stroke="#ffffff" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round"
-        stroke-dasharray="8 8" />
-    <circle cx="215" cy="215" r="214" stroke="#00ff48" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round"
-        stroke-dasharray="700,2000" transform="rotate(180,215,215)"/>
+
+<defs>
+    <style>
+      .round{
+        stroke-dasharray: 8 8;
+   
+    
+}
+.scrollView{
+    stroke-dasharray: 0,2000;
+   
+}
+
+	 
+
+
+
+	  
+    </style>
+
+</defs>
+
+   <g> <circle class="round" cx="215" cy="215" r="200" stroke="#ffffff" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round"
+         />
+         <animateTransform attributeName="transform"
+                          type="rotate"
+                          from="30 215 215"
+                          to="0 215 215"
+                          dur="1s"
+                          repeatCount="1"/></g>
+    <circle class="scrollView" cx="215" cy="215" r="210" stroke="#C2FA7C" stroke-width="3px" stroke-linecap="round" stroke-linejoin="round"
+         transform="rotate(180,215,215)"/>
+15122121212121212
    </svg>

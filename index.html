@@ -167,6 +167,7 @@
     text-align: center;
     color: white;
 }
+
     </style>
 </head><body>
 
@@ -203,18 +204,14 @@
 </div>
 
 <script>
-    // var r = document.querySelector(':root');
-    // r.style.setProperty('--width', window.innerWidth + "px");
-    // r.style.setProperty('--height', window.innerHeight + "px");
-    // r.style.setProperty('--width0', 0 + "px");
-    // r.style.setProperty('--width1', (window.innerWidth/2)-176 + "px");
-    // r.style.setProperty('--width2', window.innerWidth-176 + "px");
   
-    // r.style.setProperty('--height1', (window.innerHeight/2)-200 + "px");
+    let img1=["4.jpg","1.jpg","2.jpg"];
+    let img2=[null,"1.2.jpg","1.2.jpg"];
+
+
     
-
-
-    let total=3;
+    let total=img1.length;
+    
     let current=1;
     document.getElementById("rightButton").addEventListener("click", function(){
         current++;
@@ -222,7 +219,7 @@
             current=1;
         }
         scroller();
-        myMove(current-1);
+        myMove(current-1,true);
     });
     document.getElementById("leftButton").addEventListener("click", function(){
         current--;
@@ -230,7 +227,7 @@
             current=1;
         }
         scroller();
-        myMove(current-1);
+        myMove(current-1,false);
     });
 
 
@@ -238,11 +235,40 @@
     scroller();
     function scroller(){
         var scrlBar=650*(current/total);
+        
         var mySVG = `<svg width="430" height="430" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="215" cy="215" r="200" stroke="#ffffff" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round"
-        stroke-dasharray="8 8" />
-    <circle cx="215" cy="215" r="210" stroke="#C2FA7C" stroke-width="3px" stroke-linecap="round" stroke-linejoin="round"
-        stroke-dasharray="`+scrlBar+`,2000" transform="rotate(180,215,215)"/>
+
+<defs>
+    <style>
+      .round{
+        stroke-dasharray: 8 8;
+    
+}
+.scrollView{
+    stroke-dasharray: `+scrlBar+`,2000;
+   
+}
+
+	 
+
+
+
+	  
+    </style>
+
+</defs>
+<g>
+    <circle class="round" cx="215" cy="215" r="200" stroke="#ffffff" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round"
+         />
+         <animateTransform attributeName="transform"
+                          type="rotate"
+                          from="15 215 215"
+                          to="0 215 215"
+                          dur="0.5s"
+                          repeatCount="1"/></g>
+    <circle class="scrollView" cx="215" cy="215" r="210" stroke="#C2FA7C" stroke-width="3px" stroke-linecap="round" stroke-linejoin="round"
+         transform="rotate(180,215,215)"/>
+         `+Math.random()+`
    </svg>`;
 
 document.getElementById('navigator').style.backgroundImage = "url('data:image/svg+xml;base64," + window.btoa(mySVG) + "')";
@@ -267,27 +293,13 @@ document.getElementById('navTitle').innerHTML = current+"/"+total;
     }
 });
 
-let img1=["4.jpg","1.jpg","2.jpg"];
-let img2=[null,"1.2.jpg","1.2.jpg"];
 
 var id = null;
-function myMove(counter) {
+function myMove(counter,isRight) {
   var left = document.getElementById("leftDiv");
   var center = document.getElementById("centerDiv");
   var right = document.getElementById("rightDiv");   
-  var pos = 0;
-  clearInterval(id);
-  id = setInterval(frame, 1);
-  function frame() {
-    if (pos == 10) {
-      clearInterval(id);
-    } else {
-      pos++; 
-        left.innerHTML=`<span class="borderI" > <img src="`+img1[counter-1]+`" alt="" class="itemimg"></span><span class="borderII" ><img src="`+img2[0]+`" class="item2img"></span>`;
-        center.innerHTML=`<span class="borderI" > <img src="`+img1[counter]+`" alt="" class="itemimg"></span><span class="borderII" ><img src="`+img2[1]+`" class="item2img"></span>`;
-        right.innerHTML=`<span class="borderI" > <img src="`+img1[counter+1]+`" alt="" class="itemimg"></span><span class="borderII" ><img src="`+img2[2]+`" class="item2img"></span>`;
-    }
-  }
+  
 }
 
 </script>
