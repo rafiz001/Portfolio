@@ -9,76 +9,95 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-        :root{
-            
-            --width1:37%;
-            
-            --height1:25%;
+
+        :root {
+
+            --width1: 37%;
+
+            --height1: 25%;
         }
+
         body {
-            
+
             overflow: hidden;
             font-family: 'Roboto', sans-serif;
-            
-            background: url(noise.jpeg);
+
+            background: url(noises.jpeg?dummy=8114);
         }
 
         .full-screen {
-            
+
             background-color: #2937397e;
             height: 100%;
             width: 100%;
             position: absolute;
-            top:0;
-            left:0;
-           
+            top: 0;
+            left: 0;
+
 
         }
 
         .centerDiv {
-            
-            left:var(--width1);
-            top:var(--height1);
+
+            left: var(--width1);
+            top: var(--height1);
             position: fixed;
-            
-           
+
+
         }
 
         .rightDiv {
-           
-            left:85%;
-            top:var(--height1);
+
+            left: 85%;
+            top: var(--height1);
             position: fixed;
-            padding : 5%;
+            padding: 5%;
             transform: rotate(+15deg);
-            
-            
-           
+
+
+
         }
-      
+
 
         .leftDiv {
-            left:-25%;
-            top:var(--height1);
+            left: -25%;
+            top: var(--height1);
             position: fixed;
-            padding : 10%;
+            padding: 10%;
             transform: rotate(-15deg);
-          
-            
+
+
 
         }
-       
-        .borderI{
+        .nextL {
+                left: -550%;
+                top: var(--height1);
+                position: fixed;
+                padding: 10%;
+                transform: rotate(-30deg);
+        }
+        .next {
+                left: 550%;
+                top: var(--height1);
+                position: fixed;
+                padding: 10%;
+                transform: rotate(+30deg);
+
+
+        }
+
+        .borderI {
             border: 3px solid white;
             height: 200px;
             width: 350px;
             z-index: 5;
-            
+
             position: absolute;
             background: #C2FA7C;
-            
+
         }
-        .borderII{
+
+        .borderII {
             border: 3px solid white;
             height: 200px;
             width: 350px;
@@ -88,155 +107,272 @@
 
             background: #C2FA7C;
         }
+
         .itemimg {
             height: 200px;
             width: 350px;
             position: absolute;
-           
-            mix-blend-mode: multiply;
-            
 
-            
+            mix-blend-mode: multiply;
+
+
+
         }
 
         .item2img {
             height: 200px;
             width: 350px;
-            
-            
+
+
             mix-blend-mode: multiply;
-            
-            
+
+
         }
 
-      
-        
 
-         
-             .borderI:hover+.borderII {
-                rotate: 3deg;
-                transform: scale(1.1);
-                background: transparent;
-                transition: 0.4s;
-    
-            }
-        .borderI:hover{
+
+
+
+        .borderI:hover+.borderII {
+            rotate: 3deg;
+            transform: scale(1.1);
+            background: transparent;
+            transition: 0.4s;
+
+        }
+
+        .borderI:hover {
             rotate: -3deg;
             transform: scale(1.1);
             background-color: transparent;
             transition: 0.4s;
         }
-        
-.navigator {
-    position: fixed;
-    bottom: -90px;
-    left: 37%;
-    height: 220px;
-    width: 350px;
-    padding: 10px;
 
-    
-    /* background-image: url("border.svg?dummy=8114");
+        .navigator {
+            position: fixed;
+            bottom: -90px;
+            left: 37%;
+            height: 220px;
+            width: 350px;
+            padding: 10px;
+
+
+            /* background-image: url("border.svg?dummy=8114");
     background-image: url("data:image/svg+xml;utf8,<svg width='426' height='400'  fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='213' cy='213' r='205' stroke='#F0F0F0' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='8 8'/><circle cx='213' cy='213' r='212' stroke='#66ff33' stroke-width='2px'   /></svg>"); */
-    background-repeat: no-repeat;
-    background-size: 100%;
-  
-    z-index: 5;
-    
-}
-.navTitle{
-    color: white;
-    text-align: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
 
-}
-.arrowBox{
-    display:flex;
+            z-index: 5;
 
-    margin-top: 30px;
-    justify-content: center;
-}
-.leftButton{
-    transform: rotate(180deg);
-}
-#description{
-    height: 50px;
-    width: 100px;
-    padding-top: 5px;
-    padding-left: 7px;
-    padding-right: 7px;
-    text-align: center;
-    color: white;
-}
+        }
 
+        .navTitle {
+            color: white;
+            text-align: center;
+
+        }
+
+        .arrowBox {
+            display: flex;
+
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .leftButton {
+            transform: rotate(180deg);
+        }
+
+        #description {
+            height: 50px;
+            width: 100px;
+            padding-top: 5px;
+            padding-left: 7px;
+            padding-right: 7px;
+            text-align: center;
+            color: white;
+        }
+
+        .rightToCenter {
+            animation: rightToCenter 1s ease-in-out forwards;
+        }
+
+        .centerToLeft {
+            animation: centerToLeft 1s ease-in-out forwards;
+        }
+        .nextToRight {
+            animation: nextToRight 1s ease-in-out backwards;
+        }
+        .nextLToLeft {
+            animation: nextLToLeft 1s ease-in-out forwards;
+        }
+        @keyframes rightToCenter {
+            from {
+                left: 85%;
+                top: var(--height1);
+
+                padding: 5%;
+                transform: rotate(+15deg);
+            }
+
+            to {
+                left: var(--width1);
+                top: var(--height1);
+                padding: 0%;
+                transform: rotate(0deg);
+            }
+
+        }
+
+        @keyframes centerToLeft {
+            from {
+                left: var(--width1);
+                top: var(--height1);
+                padding: 0%;
+                transform: rotate(0deg);
+            }
+
+            to {
+                left: -25%;
+                top: var(--height1);
+
+                padding: 10%;
+                transform: rotate(-15deg);
+            }
+
+        }
+
+        @keyframes nextToRight {
+            from {
+                left: 550%;
+                top: var(--height1);
+                
+                padding: 10%;
+                transform: rotate(+30deg);
+            }
+
+            to {
+                top:var(--height1);
+                
+                left: 85%;
+                padding: 5%;
+                transform: rotate(+15deg);
+            }
+
+        }
+        @keyframes nextLToLeft {
+            from {
+                left: 100%;
+                
+                
+                padding: 5%;
+                transform: rotate(+30deg);
+            }
+
+            to {
+                left: 85%;
+                
+
+                padding: 5%;
+                transform: rotate(+15deg);
+            }
+
+        }
     </style>
-</head><body>
+</head>
 
-<div class="full-screen">
-    <div class="leftDiv" id="leftDiv">
-       <span class="borderI" > <img src="4.jpg" alt="" class="itemimg"></span>
-        <span class="borderII" ><img src="1.2.jpg" class="item2img"></span>
+<body>
+
+    <div class="full-screen">
+        <div class="leftDiv">
+
+        </div>
+
+        <div class="centerDiv">
+            <span class="borderI"> <img src="4.jpg" alt="" class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>
+        </div>
+
+
+        <div class="rightDiv">
+            <span class="borderI"> <img src="1.jpg" alt="" class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>
+        </div>
+
+        <div class="next">
+            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>
+        </div>
+        <div class="next">
+            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
+        </div>
+        <div class="next">
+            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
+        </div>
+        <div class="next">
+            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
+        </div>
+
+
+
+
+
+    </div>
+    <div class="navigator box" id="navigator">
+        <br>
+        <div class="navTitle" id="navTitle">Rafiz</div>
+        <div class="arrowBox"> <img class="leftButton" id="leftButton" src="buttonRight.svg">
+            <div id="description">2023<div style="font-size: 20;"> February</div>
+            </div>
+            <img class="rightButton" id="rightButton" src="buttonRight.svg">
+        </div>
+
     </div>
 
-    <div class="centerDiv" id="centerDiv">
-        <span class="borderI" > <img src="1.jpg" alt="" class="itemimg"></span>
-        <span class="borderII" ><img src="1.2.jpg" class="item2img"></span>
-    </div>
+    <script>
 
-
-    <div class="rightDiv" id="rightDiv">
-        <span class="borderI" > <img src="2.jpg" alt="" class="itemimg"></span>
-        <span class="borderII" ><img src="1.2.jpg" class="item2img"></span>
-    </div>
+        let img1 = ["4.jpg", "1.jpg", "2.jpg","eee","",""];
+        let img2 = [null, "1.2.jpg", "1.2.jpg",""];
 
 
 
-   
+        let total = img1.length;
 
- 
+        let current = 1;
+        document.getElementById("rightButton").addEventListener("click", function () {
+            current++;
+            if (current <= total) {
 
-</div>
-<div class="navigator box" id="navigator">
-    <br><div class="navTitle" id="navTitle">Rafiz</div>
-    <div class="arrowBox"> <img class="leftButton" id="leftButton" src="buttonRight.svg">
-    <div id="description">2023<div style="font-size: 20;"> February</div></div>
-    <img class="rightButton" id="rightButton" src="buttonRight.svg"></div>
+                
+                scroller();
+                
+                myMove(true);
+               
 
-</div>
+            }else{
+                current=total;
+            }
+        });
+        document.getElementById("leftButton").addEventListener("click", function () {
+            current--;
+            if (current <= 0) {
+                current = 1;
+            }
+            scroller();
+            myMove(false);
+        });
 
-<script>
-  
-    let img1=["4.jpg","1.jpg","2.jpg"];
-    let img2=[null,"1.2.jpg","1.2.jpg"];
 
 
-    
-    let total=img1.length;
-    
-    let current=1;
-    document.getElementById("rightButton").addEventListener("click", function(){
-        current++;
-        if(current>total){
-            current=1;
-        }
         scroller();
-        myMove(current-1,true);
-    });
-    document.getElementById("leftButton").addEventListener("click", function(){
-        current--;
-        if(current<=0){
-            current=1;
-        }
-        scroller();
-        myMove(current-1,false);
-    });
+        function scroller() {
+         
+            var scrlBar = 650 * (current / total);
 
-
-
-    scroller();
-    function scroller(){
-        var scrlBar=650*(current/total);
-        
-        var mySVG = `<svg width="430" height="430" fill="none" xmlns="http://www.w3.org/2000/svg">
+            var mySVG = `<svg width="430" height="430" fill="none" xmlns="http://www.w3.org/2000/svg">
 
 <defs>
     <style>
@@ -245,7 +381,7 @@
     
 }
 .scrollView{
-    stroke-dasharray: `+scrlBar+`,2000;
+    stroke-dasharray: `+ scrlBar + `,2000;
    
 }
 
@@ -268,41 +404,62 @@
                           repeatCount="1"/></g>
     <circle class="scrollView" cx="215" cy="215" r="210" stroke="#C2FA7C" stroke-width="3px" stroke-linecap="round" stroke-linejoin="round"
          transform="rotate(180,215,215)"/>
-         `+Math.random()+`
+         `+ Math.random() * 10000 + `
    </svg>`;
 
-document.getElementById('navigator').style.backgroundImage = "url('data:image/svg+xml;base64," + window.btoa(mySVG) + "')";
-document.getElementById('navTitle').innerHTML = current+"/"+total;
+            document.getElementById('navigator').style.backgroundImage = "url('data:image/svg+xml;base64," + window.btoa(mySVG) + "')";
+            document.getElementById('navTitle').innerHTML = current + "/" + total;
 
-    }
-
-    document.addEventListener("wheel", (event) => {
-  if(event.deltaY > 0){
-    current++;
-        if(current>total){
-            current=1;
         }
-        scroller();
-    }
-    else{
-        current--;
-        if(current<=0){
-            current=1;
+
+        document.addEventListener("wheel", (event) => {
+            if (event.deltaY > 0) {
+                current++;
+                if (current > total) {
+                    current = 1;
+                }
+                scroller();
+            }
+            else {
+                current--;
+                if (current <= 0) {
+                    current = 1;
+                }
+                scroller();
+            }
+        });
+
+
+
+        function myMove(isRight) {
+            if (current <= total) {
+                const left = document.querySelectorAll(".leftDiv")[0];
+                const center = document.querySelectorAll(".centerDiv")[0];
+                const right = document.querySelectorAll(".rightDiv")[0];
+                const nexts = document.querySelectorAll(".next");
+                 if(nexts.length>0)nexts[0].classList.replace("next", "rightDiv");
+                 if(nexts.length>0)nexts[0].classList.add("nextToRight");
+               
+                    
+                center.classList.remove("rightToCenter");
+                left.classList.remove("centerToLeft");
+                right.classList.remove("nextToRight");
+
+                right.classList.replace("rightDiv", "centerDiv");
+                center.classList.replace("centerDiv", "leftDiv");
+                left.classList.replace("leftDiv", "nextL");
+                right.classList.add("rightToCenter");
+                center.classList.add("centerToLeft");
+                
+
+
+
+
+
+            }
         }
-        scroller();
-    }
-});
 
-
-var id = null;
-function myMove(counter,isRight) {
-  var left = document.getElementById("leftDiv");
-  var center = document.getElementById("centerDiv");
-  var right = document.getElementById("rightDiv");   
-  
-}
-
-</script>
+    </script>
 
 </body>
 
