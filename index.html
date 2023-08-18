@@ -15,6 +15,8 @@
             --width1: 37%;
 
             --height1: 25%;
+            --animType: alternate;
+            --animTime: 0.5s;
         }
 
         body {
@@ -198,35 +200,44 @@
         }
 
         .rightToCenter {
-            animation: rightToCenter 1s ease-in-out forwards;
+            animation: rightToCenter var(--animTime) var(--animType) forwards;
+            
+
         }
 
         .centerToRight {
-            animation: centerToRight 1s ease-in-out forwards;
+            animation: centerToRight var(--animTime) var(--animType) forwards;
+            
         }
 
         .centerToLeft {
-            animation: centerToLeft 1s ease-in-out forwards;
+            animation: centerToLeft var(--animTime) var(--animType) forwards;
+            
         }
 
         .leftToCenter {
-            animation: leftToCenter 1s ease-in-out forwards;
+            animation: leftToCenter var(--animTime) var(--animType) forwards;
+            
         }
 
         .nextToRight {
-            animation: nextToRight 1s ease-in-out backwards;
+            animation: nextToRight var(--animTime) var(--animType) backwards;
+            
         }
 
         .rightToNext {
-            animation: rightToNext 1s ease-in-out backwards;
+            animation: rightToNext var(--animTime) var(--animType) backwards;
+            
         }
 
         .leftToNextL {
-            animation: leftToNextL 1s ease-in-out backwards;
+            animation: leftToNextL var(--animTime) var(--animType) backwards;
+            
         }
 
         .nextLToLeft {
-            animation: nextLToLeft 1s ease-in-out backwards;
+            animation: nextLToLeft var(--animTime) var(--animType) backwards;
+            
         }
 
         @keyframes rightToCenter {
