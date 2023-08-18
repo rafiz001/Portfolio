@@ -488,7 +488,28 @@
            
            
         });
+document.addEventListener("wheel", (event) => {
+            if (event.deltaY > 0) {
+                current++;
+            if (current <= total) {
 
+
+                
+
+                myMove(true);
+
+
+            } else {
+                current = total;
+            }}
+            else {
+                current--;
+            if (current <= 0) {
+                current = 1;
+            }else{
+                myMove(false);
+            }}
+        });
 
 
         scroller();
@@ -536,23 +557,7 @@
 
         }
 
-        document.addEventListener("wheel", (event) => {
-            if (event.deltaY > 0) {
-                current++;
-                if (current > total) {
-                    current = 1;
-                }
-                myMove(true);
-               
-            }
-            else {
-                current--;
-                if (current <= 0) {
-                    current = 1;
-                }
-              myMove(false);
-            }
-        });
+        
 
 
 
