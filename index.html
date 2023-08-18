@@ -22,7 +22,7 @@
             overflow: hidden;
             font-family: 'Roboto', sans-serif;
 
-            background: url(noises.jpeg?dummy=8114);
+            background: url(noises.jpeg);
         }
 
         .full-screen {
@@ -69,19 +69,23 @@
 
 
         }
+
         .nextL {
-                left: -550%;
-                top: var(--height1);
-                position: fixed;
-                padding: 10%;
-                transform: rotate(-30deg);
+            left: -350px;
+            /* used to avoid hardware acceleration*/
+            top: 99.5%;
+            position: fixed;
+            /* padding: 10%;
+                transform: rotate(-30deg); */
         }
+
         .next {
-                left: 550%;
-                top: var(--height1);
-                position: fixed;
-                padding: 10%;
-                transform: rotate(+30deg);
+            left: 99.7%;
+            /* used to avoid hardware acceleration*/
+            top: 99.5%;
+            position: fixed;
+
+
 
 
         }
@@ -197,15 +201,34 @@
             animation: rightToCenter 1s ease-in-out forwards;
         }
 
+        .centerToRight {
+            animation: centerToRight 1s ease-in-out forwards;
+        }
+
         .centerToLeft {
             animation: centerToLeft 1s ease-in-out forwards;
         }
+
+        .leftToCenter {
+            animation: leftToCenter 1s ease-in-out forwards;
+        }
+
         .nextToRight {
             animation: nextToRight 1s ease-in-out backwards;
         }
-        .nextLToLeft {
-            animation: nextLToLeft 1s ease-in-out forwards;
+
+        .rightToNext {
+            animation: rightToNext 1s ease-in-out backwards;
         }
+
+        .leftToNextL {
+            animation: leftToNextL 1s ease-in-out backwards;
+        }
+
+        .nextLToLeft {
+            animation: nextLToLeft 1s ease-in-out backwards;
+        }
+
         @keyframes rightToCenter {
             from {
                 left: 85%;
@@ -224,7 +247,15 @@
 
         }
 
-        @keyframes centerToLeft {
+        @keyframes centerToRight {
+            to {
+                left: 85%;
+                top: var(--height1);
+
+                padding: 5%;
+                transform: rotate(+15deg);
+            }
+
             from {
                 left: var(--width1);
                 top: var(--height1);
@@ -232,9 +263,39 @@
                 transform: rotate(0deg);
             }
 
+        }
+
+
+
+        @keyframes centerToLeft {
+            from {
+                left: var(--width1);
+
+                padding: 0%;
+                transform: rotate(0deg);
+            }
+
             to {
                 left: -25%;
-                top: var(--height1);
+
+
+                padding: 10%;
+                transform: rotate(-15deg);
+            }
+
+        }
+
+        @keyframes leftToCenter {
+            to {
+                left: var(--width1);
+
+                padding: 0%;
+                transform: rotate(0deg);
+            }
+
+            from {
+                left: -25%;
+
 
                 padding: 10%;
                 transform: rotate(-15deg);
@@ -244,37 +305,76 @@
 
         @keyframes nextToRight {
             from {
-                left: 550%;
-                top: var(--height1);
-                
-                padding: 10%;
+                left: 145%;
+                top: 70%;
+
+                padding: 5%;
                 transform: rotate(+30deg);
             }
 
             to {
-                top:var(--height1);
-                
+                top: var(--height1);
+
                 left: 85%;
                 padding: 5%;
                 transform: rotate(+15deg);
             }
 
         }
-        @keyframes nextLToLeft {
-            from {
-                left: 100%;
-                
-                
+
+        @keyframes rightToNext {
+            to {
+                left: 145%;
+                top: 70%;
+
                 padding: 5%;
                 transform: rotate(+30deg);
             }
 
-            to {
-                left: 85%;
-                
+            from {
+                top: var(--height1);
 
+                left: 85%;
                 padding: 5%;
                 transform: rotate(+15deg);
+            }
+
+        }
+
+        @keyframes leftToNextL {
+            from {
+                left: -25%;
+                top: var(--height1);
+                transform: rotate(-15deg);
+                padding: 10%;
+
+            }
+
+            to {
+                left: -85%;
+                top: 70%;
+                transform: rotate(-30deg);
+                padding: 10%;
+
+            }
+
+        }
+
+        @keyframes nextLToLeft {
+            to {
+                left: -25%;
+                top: var(--height1);
+                transform: rotate(-15deg);
+                padding: 10%;
+
+            }
+
+            from {
+                left: -85%;
+                top: 70%;
+                transform: rotate(-30deg);
+                padding: 10%;
+
             }
 
         }
@@ -283,10 +383,25 @@
 
 <body>
 
-    <div class="full-screen">
+    <div class="full-screen" id="container">
+
+
+                <!-- <div class="nextL">
+            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
+        </div>
+        <div class="nextL">
+            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
+        </div>
+        <div class="nextL">
+            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
+        </div> -->
         <div class="leftDiv">
 
         </div>
+
 
         <div class="centerDiv">
             <span class="borderI"> <img src="4.jpg" alt="" class="itemimg"></span>
@@ -301,18 +416,18 @@
 
         <div class="next">
             <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>
+
         </div>
         <div class="next">
-            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderI"> <img src="3.jpg" alt="" class="itemimg"></span>
             <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
         </div>
         <div class="next">
-            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderI"> <img src="4.jpg" alt="" class="itemimg"></span>
             <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
         </div>
         <div class="next">
-            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
+            <span class="borderI"> <img src="5.jpg" alt="" class="itemimg"></span>
             <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
         </div>
 
@@ -334,42 +449,40 @@
 
     <script>
 
-        let img1 = ["4.jpg", "1.jpg", "2.jpg","eee","",""];
-        let img2 = [null, "1.2.jpg", "1.2.jpg",""];
-
-
-
-        let total = img1.length;
+        
+        let total = document.querySelectorAll(".next").length+2;
 
         let current = 1;
         document.getElementById("rightButton").addEventListener("click", function () {
             current++;
             if (current <= total) {
 
-                
-                scroller();
-                
-                myMove(true);
-               
 
-            }else{
-                current=total;
+                
+
+                myMove(true);
+
+
+            } else {
+                current = total;
             }
         });
         document.getElementById("leftButton").addEventListener("click", function () {
             current--;
             if (current <= 0) {
                 current = 1;
+            }else{
+                myMove(false);
             }
-            scroller();
-            myMove(false);
+           
+           
         });
 
 
 
         scroller();
         function scroller() {
-         
+
             var scrlBar = 650 * (current / total);
 
             var mySVG = `<svg width="430" height="430" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -418,39 +531,100 @@
                 if (current > total) {
                     current = 1;
                 }
-                scroller();
+                myMove(true);
+               
             }
             else {
                 current--;
                 if (current <= 0) {
                     current = 1;
                 }
-                scroller();
+              myMove(false);
             }
         });
 
 
 
         function myMove(isRight) {
-            if (current <= total) {
+            if (current <= total && current > 0 ) {
+                scroller();
+                
                 const left = document.querySelectorAll(".leftDiv")[0];
+                if(left==undefined){
+                    const newLeft=document.createElement("div");
+                    newLeft.classList.add("leftDiv");
+                    document.getElementById("container").append(newLeft);
+                    myMove(isRight);return;}
+
                 const center = document.querySelectorAll(".centerDiv")[0];
                 const right = document.querySelectorAll(".rightDiv")[0];
-                const nexts = document.querySelectorAll(".next");
-                 if(nexts.length>0)nexts[0].classList.replace("next", "rightDiv");
-                 if(nexts.length>0)nexts[0].classList.add("nextToRight");
-               
+                if(right==undefined){
+                    const newRight=document.createElement("div");
+                    newRight.classList.add("rightDiv");
                     
-                center.classList.remove("rightToCenter");
-                left.classList.remove("centerToLeft");
-                right.classList.remove("nextToRight");
+                    document.getElementById("container").append(newRight);
+                    myMove(isRight);return;}
 
-                right.classList.replace("rightDiv", "centerDiv");
-                center.classList.replace("centerDiv", "leftDiv");
-                left.classList.replace("leftDiv", "nextL");
-                right.classList.add("rightToCenter");
-                center.classList.add("centerToLeft");
-                
+                const nexts = document.querySelectorAll(".next");
+                var nextL = document.querySelectorAll(".nextL");
+                nextL.forEach(element => {
+                    element.classList.remove("leftToNextL");
+                });
+                nexts.forEach(element => {
+                   
+                    element.classList.remove("rightToNext");
+                });
+
+
+                center.classList.remove("rightToCenter");
+                    left.classList.remove("centerToLeft");
+                    right.classList.remove("nextToRight");
+                    ////
+                    center.classList.remove("leftToCenter");
+                    left.classList.remove("nextLToLeft");
+                    right.classList.remove("centerToRight");
+
+                if (isRight) {
+
+                    if (nexts.length > 0) nexts[0].classList.replace("next", "rightDiv");
+                    if (nexts.length > 0) nexts[0].classList.add("nextToRight");
+                    // if (nextL.length > 0) nextL[0].classList.replace("nextL", "leftDiv");
+                    // if (nextL.length > 0) nextL[0].classList.add("nextToLeft");
+                    // center.classList.remove("leftToCenter");
+                    // left.classList.remove("nextToLeft");
+                    // right.classList.remove("centerToRight");
+
+
+                    
+
+                    right.classList.replace("rightDiv", "centerDiv");
+                    center.classList.replace("centerDiv", "leftDiv");
+                    left.classList.replace("leftDiv", "nextL");
+                    left.classList.add("leftToNextL");
+                    right.classList.add("rightToCenter");
+                    center.classList.add("centerToLeft");
+                }
+                else {
+                    // center.classList.remove("rightToCenter");
+                    // left.classList.remove("centerToLeft");
+                    // right.classList.remove("nextToRight");
+                    // if (nexts.length > 0) nexts[0].classList.replace("next", "rightDiv");
+                    // if (nexts.length > 0) nexts[0].classList.add("nextToRight");
+                    if (nextL.length > 0){  nextL[nextL.length-1].classList.replace("nextL", "leftDiv");}
+                    if (nextL.length > 0) nextL[nextL.length-1].classList.add("nextLToLeft");
+
+
+                    left.classList.replace("leftDiv", "centerDiv");
+                    center.classList.replace("centerDiv", "rightDiv");
+                    right.classList.replace("rightDiv", "next");
+                    right.classList.add("rightToNext");
+                    left.classList.add("leftToCenter");
+                    center.classList.add("centerToRight");
+
+
+
+                }
+
 
 
 
