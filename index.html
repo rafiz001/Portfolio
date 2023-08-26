@@ -474,11 +474,11 @@
               g{
                     fill: #ffffff;
                 }
-                .h:hover{
+               .h:hover{
                     fill: #C2FA7C;
                      transform: rotate(0deg);
                 }
-            g:hover+.cent{
+            .h:hover+.cent{
                 --x:2;
                 transition:  1s transform;
                 transform: scale(var(--x))  ;
@@ -487,19 +487,22 @@
                 transform-origin: 64px 64px;
                 fill: #C2FA7C;
         
+            } 
+            
+            #scale:hover{
+                --x:2;
+                transition:  1s transform;
+                transform: scale(var(--x))  ;
+                -ms-transform: scale(var(--x));
+                -webkit-transform: scale(var(--x));
+                transform-origin: 64px 64px;
+                fill: #C2FA7C;
             }
-                /* svg{
-                    background: #000000;
-                    
-                } */
-        /* #scale {
-          height: 64px;
-          width: 64px;
-          top:0;
-          left:0;
-          position:fixed;
-          margin: 0 auto;
-        } */
+            #scale:hover+.h{
+                fill: #C2FA7C;
+                transform: rotate(0deg);
+            }
+                
             </style>
         </defs>
         <g class="h">
