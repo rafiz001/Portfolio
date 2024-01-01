@@ -182,24 +182,23 @@
         }
 
         .arrowBox {
-            display: flex;
-
-            margin-top: 30px;
+            margin-top: -10%;
+            margin-left: 14%;
             justify-content: center;
         }
 
         .leftButton {
             transform: rotate(180deg);
+            padding-left: 125px;
         }
 
         #description {
-            height: 50px;
-            width: 100px;
-            padding-top: 5px;
-            padding-left: 7px;
-            padding-right: 7px;
+            
+            padding-top: 20px;
+           
             text-align: center;
             color: white;
+           
         }
 
         .rightToCenter {
@@ -407,17 +406,19 @@
             top: 30px;
             left: 30px;
             /* color: var(--theme); */
-           
+
             display: flex;
             align-items: center;
-            
+
         }
-        .imgCont{
+
+        .imgCont {
             background-color: var(--theme);
             border-radius: 50%;
             height: 50px;
             width: 50px;
         }
+
         .authorImg {
             border-radius: 50%;
             height: 50px;
@@ -426,46 +427,104 @@
             mix-blend-mode: multiply;
         }
 
-        
+
 
         .authorText {
             text-align: center;
             margin-left: 10px;
-            color:var(--theme);
+            color: var(--theme);
             /* mix-blend-mode: multiply; */
-            
+
 
         }
-        .imgCont, .authorImg, .authorText{
+
+        .imgCont,
+        .authorImg,
+        .authorText {
             transition: 0.3s;
         }
-        .aboutMe{
-            position:fixed;
+
+        .aboutMe {
+            position: fixed;
             top: 30px;
             right: 30px;
             color: var(--theme);
             font-size: 15px;
             border-radius: 40px;
-            
+
             border: 2px solid var(--theme);
             padding: 20px;
-            
+
         }
-        .aboutMe:hover{
+
+        .aboutMe:hover {
             background-color: var(--theme);
             color: #000000;
             border: 2px solid var(--theme);
         }
-        .socialbox{
-            position:fixed;
+
+        .socialbox {
+            position: fixed;
             bottom: 30px;
             left: 30px;
         }
-        .social{
+
+        .social {
             height: 20px;
             width: 20px;
             border-radius: 50%;
             margin-left: 10px;
+        }
+
+        @media only screen and (min-width: 600px) and (max-width: 768px) {
+
+            /* tablets */
+            :root {
+                --theme: #000000;
+            }
+
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            /* phones */
+            .rightDiv,
+            .leftDiv {
+                left: -400px;
+
+                top: 99.5%;
+                position: fixed;
+
+            }
+
+            :root {
+
+                --width1: 15%;
+
+                --height1: 20%;
+
+                --imageHeight: 30vh;
+                --imageWidth: 70vw;
+
+            }
+            .socialbox{
+                display: none;
+            }
+            .arrowBox {
+            margin-top: 0;
+            margin-left: 0;
+            justify-content: center;
+            position: fixed;
+            top: 60vh;
+            left: 27vw;
+        }
+        .navigator{
+            left: 17vw;
+        }
+        .contactUsBtn{
+            bottom: 15vh;
+        }
+
         }
     </style>
 </head>
@@ -527,10 +586,12 @@
     </div>
     <div class="navigator box" id="navigator">
         <br>
-        <div class="navTitle" id="navTitle">Rafiz</div>
+        <div class="navTitle" ><span id="navTitle">Rafiz</span>
+            <div id="description">2023<div style="font-size: 20;"> February</div></div>
+        </div>
         <div class="arrowBox"> <img class="leftButton" id="leftButton" src="buttonRight.svg">
-            <div id="description">2023<div style="font-size: 20;"> February</div>
-            </div>
+            
+              
             <img class="rightButton" id="rightButton" src="buttonRight.svg">
         </div>
         <div class="contactUsBtn">
@@ -572,8 +633,6 @@
                                 fill: #C2FA7C;
                                 transform: rotate(0deg);
                             }
-                            
-                            
                         </style>
                     </defs>
                     <g class="h" onmouseover="hoverd()" onmouseout="release()">
@@ -635,30 +694,25 @@
                         <!--path
                             d="M31.6069 11.3809C31.2759 10.9853 30.8543 10.7886 30.342 10.7908C29.8298 10.793 29.3142 10.9681 28.7954 11.316C28.416 11.5704 28.1247 11.8551 27.9215 12.1701C27.7211 12.4833 27.6125 12.802 27.5957 13.1261C27.5818 13.4483 27.6653 13.7477 27.8464 14.0245C27.9979 14.2561 28.1825 14.4187 28.4003 14.5124C28.6191 14.6014 28.8509 14.643 29.0959 14.6371C29.3391 14.6285 29.5786 14.5958 29.8145 14.5393C30.0485 14.4798 30.2589 14.418 30.4456 14.3537L31.4711 14.0074C31.733 13.917 32.0349 13.8325 32.3766 13.7536C32.7211 13.6729 33.078 13.6388 33.4473 13.6512C33.8175 13.6589 34.1764 13.7474 34.5239 13.9166C34.8714 14.0858 35.1781 14.3738 35.4442 14.7805C35.7509 15.2493 35.9067 15.7543 35.9116 16.2954C35.9192 16.8347 35.7645 17.3712 35.4474 17.9048C35.1331 18.4366 34.6468 18.9231 33.9885 19.3646C33.3748 19.7761 32.7779 20.0322 32.1976 20.1328C31.6201 20.2316 31.0857 20.1877 30.5944 20.0011C30.106 19.8127 29.6898 19.4924 29.3459 19.0404L30.4171 18.3221C30.6593 18.631 30.9454 18.8292 31.2755 18.9166C31.6066 18.9994 31.9527 18.9948 32.314 18.9029C32.6762 18.8063 33.0274 18.6439 33.3677 18.4157C33.7638 18.1501 34.077 17.8466 34.3072 17.5053C34.5356 17.1612 34.6652 16.8102 34.6959 16.4524C34.7248 16.0917 34.6358 15.7532 34.4289 15.4369C34.2405 15.1488 34.0076 14.9677 33.7304 14.8936C33.4531 14.8195 33.1478 14.8129 32.8145 14.8739C32.4812 14.9349 32.1362 15.0241 31.7795 15.1413L30.5256 15.5434C29.7286 15.7975 29.0166 15.8747 28.3896 15.7751C27.7626 15.6754 27.2579 15.3333 26.8754 14.7487C26.5577 14.263 26.4102 13.7524 26.4332 13.2169C26.4571 12.6768 26.6238 12.1587 26.9333 11.6626C27.2438 11.1619 27.6724 10.7282 28.2192 10.3616C28.7715 9.99119 29.328 9.76224 29.8888 9.6747C30.4477 9.58433 30.9654 9.62723 31.4418 9.80343C31.921 9.97777 32.3108 10.2791 32.6111 10.7075L31.6069 11.3809Z"
                             sorry="#F0F0F0" /-->
-                           
-                           <path
-                             d="m 15.360811,24.780672 1.637728,-1.373128 6.4246,2.489647 -2.267709,-5.97493 1.637728,-1.373129 6.39462,6.212595 -1.071869,0.898691 -5.6151,-5.455265 2.291092,6.017343 -1.104515,0.926064 -6.48063,-2.504688 5.615101,5.455265 -1.066426,0.89413 z"
-                              id="text23"
-                              aria-label="M" />
-                           <path
-                              d="m 29.309331,14.234995 4.549971,-3.982838 0.689878,0.851888 -3.576354,3.130579 1.793685,2.214907 3.426938,-2.999786 0.689879,0.851886 -3.426937,2.999788 2.195438,2.711006 3.663112,-3.206522 0.68988,0.851887 -4.636729,4.058782 z"
-                              id="text24"
-                              aria-label="E" />
-                         
-                        
-                           <path
-                              style="font-size:13.3333px;font-family:'Droid Sans Fallback';-inkscape-font-specification:'Droid Sans Fallback';letter-spacing:0.710238px;white-space:pre;inline-size:20.7212;stroke-width:1.99514"
-                              d="m 15.360811,24.780672 1.637728,-1.373128 6.4246,2.489647 -2.267709,-5.97493 1.637728,-1.373129 6.39462,6.212595 -1.071869,0.898691 -5.6151,-5.455265 2.291092,6.017343 -1.104515,0.926064 -6.48063,-2.504688 5.615101,5.455265 -1.066426,0.89413 z"
-                              id="path24"
-                              aria-label="M" 
-                              transform="rotate(170.05828,63.009652,65.869667)"/>
-                           <path
-                              d="m 29.309331,14.234995 4.549971,-3.982838 0.689878,0.851888 -3.576354,3.130579 1.793685,2.214907 3.426938,-2.999786 0.689879,0.851886 -3.426937,2.999788 2.195438,2.711006 3.663112,-3.206522 0.68988,0.851887 -4.636729,4.058782 z"
-                              id="path25"
-                              style="font-size:13.3333px;font-family:'Droid Sans Fallback';-inkscape-font-specification:'Droid Sans Fallback';letter-spacing:0.89px;stroke-width:1.97362"
-                              aria-label="E"
-                              transform="rotate(170.05828,63.009652,65.869667)" />
-                        
+
+                        <path
+                            d="m 15.360811,24.780672 1.637728,-1.373128 6.4246,2.489647 -2.267709,-5.97493 1.637728,-1.373129 6.39462,6.212595 -1.071869,0.898691 -5.6151,-5.455265 2.291092,6.017343 -1.104515,0.926064 -6.48063,-2.504688 5.615101,5.455265 -1.066426,0.89413 z"
+                            id="text23" aria-label="M" />
+                        <path
+                            d="m 29.309331,14.234995 4.549971,-3.982838 0.689878,0.851888 -3.576354,3.130579 1.793685,2.214907 3.426938,-2.999786 0.689879,0.851886 -3.426937,2.999788 2.195438,2.711006 3.663112,-3.206522 0.68988,0.851887 -4.636729,4.058782 z"
+                            id="text24" aria-label="E" />
+
+
+                        <path
+                            style="font-size:13.3333px;font-family:'Droid Sans Fallback';-inkscape-font-specification:'Droid Sans Fallback';letter-spacing:0.710238px;white-space:pre;inline-size:20.7212;stroke-width:1.99514"
+                            d="m 15.360811,24.780672 1.637728,-1.373128 6.4246,2.489647 -2.267709,-5.97493 1.637728,-1.373129 6.39462,6.212595 -1.071869,0.898691 -5.6151,-5.455265 2.291092,6.017343 -1.104515,0.926064 -6.48063,-2.504688 5.615101,5.455265 -1.066426,0.89413 z"
+                            id="path24" aria-label="M" transform="rotate(170.05828,63.009652,65.869667)" />
+                        <path
+                            d="m 29.309331,14.234995 4.549971,-3.982838 0.689878,0.851888 -3.576354,3.130579 1.793685,2.214907 3.426938,-2.999786 0.689879,0.851886 -3.426937,2.999788 2.195438,2.711006 3.663112,-3.206522 0.68988,0.851887 -4.636729,4.058782 z"
+                            id="path25"
+                            style="font-size:13.3333px;font-family:'Droid Sans Fallback';-inkscape-font-specification:'Droid Sans Fallback';letter-spacing:0.89px;stroke-width:1.97362"
+                            aria-label="E" transform="rotate(170.05828,63.009652,65.869667)" />
+
                         <path
                             d="M52.4946 11.1861C52.2522 11.2369 52.0262 11.1925 51.8166 11.053C51.6071 10.9135 51.4773 10.721 51.4272 10.4755C51.3771 10.23 51.4209 10.0012 51.5587 9.78907C51.6964 9.57692 51.8866 9.44549 52.129 9.39477C52.3715 9.34405 52.5975 9.38843 52.8071 9.52793C53.0166 9.66742 53.1464 9.8599 53.1965 10.1054C53.2297 10.2679 53.2192 10.4258 53.165 10.5789C53.1142 10.7314 53.03 10.8631 52.9126 10.9742C52.7978 11.0812 52.6585 11.1519 52.4946 11.1861Z"
                             sorry="#F0F0F0" />
@@ -685,20 +739,23 @@
 
 
 
-        <div class="author" onmouseover="imghover()" onmouseout="imgreleas()" ><div class="imgCont"><img class="authorImg" src="authr.png" ></div>
-             <span class="authorText">Md. Rafiz Uddin</span>
+        <div class="author" onmouseover="imghover()" onmouseout="imgreleas()">
+            <div class="imgCont"><img class="authorImg" src="authr.png"></div>
+            <span class="authorText">Md. Rafiz Uddin</span>
         </div>
 
-        <a href="#"><div class="aboutMe">ABOUT ME</div></a>
+        <a href="#">
+            <div class="aboutMe">ABOUT ME</div>
+        </a>
         <div class="socialbox">
-            <a href="#"><img src="github.png" class="social"></a> 
-             
-             <a href="#"><img src="LinkedinLogo.svg" class="social"></a> 
+            <a href="#"><img src="github.png" class="social"></a>
 
-             <a href="#"><img src="FacebookLogo.svg" class="social"></a> 
+            <a href="#"><img src="LinkedinLogo.svg" class="social"></a>
+
+            <a href="#"><img src="FacebookLogo.svg" class="social"></a>
         </div>
     </div>
-    
+
     <script>
         function hoverd() {
             var outer = document.getElementsByClassName("h")[0];
@@ -714,29 +771,29 @@
         }
         function imghover() {
             var outer = document.getElementsByClassName("imgCont")[0];
-            var inner=document.getElementsByClassName("authorImg")[0];
-            inner.style.mixBlendMode="normal";
-            outer.style.backgroundColor="#ffffff";
+            var inner = document.getElementsByClassName("authorImg")[0];
+            inner.style.mixBlendMode = "normal";
+            outer.style.backgroundColor = "#ffffff";
             outer.style.width = "70px";
             inner.style.width = "70px";
             // outer.style.height = "40px";
             // inner.style.height = "40px";
             outer.style.borderRadius = "35%";
             inner.style.borderRadius = "35%";
-            document.getElementsByClassName("authorText")[0].style.color="#ffffff";
+            document.getElementsByClassName("authorText")[0].style.color = "#ffffff";
         }
         function imgreleas() {
-             var outer = document.getElementsByClassName("imgCont")[0];
-            var inner=document.getElementsByClassName("authorImg")[0];
-            inner.style.mixBlendMode="multiply";
+            var outer = document.getElementsByClassName("imgCont")[0];
+            var inner = document.getElementsByClassName("authorImg")[0];
+            inner.style.mixBlendMode = "multiply";
             outer.style.width = "50px";
             inner.style.width = "50px";
             // outer.style.height = "50px";
             // inner.style.height = "50px";
             outer.style.borderRadius = "50%";
             inner.style.borderRadius = "50%";
-            outer.style.backgroundColor="#C2FA7C";
-            document.getElementsByClassName("authorText")[0].style.color="#C2FA7C";
+            outer.style.backgroundColor = "#C2FA7C";
+            document.getElementsByClassName("authorText")[0].style.color = "#C2FA7C";
         }
 
 
