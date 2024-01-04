@@ -501,7 +501,7 @@
 
                 --height1: 20%;
 
-                --imageHeight: 30vh;
+                --imageHeight: 20vh;
                 --imageWidth: 70vw;
 
             }
@@ -514,7 +514,7 @@
             
           
             position: fixed;
-            top: 60vh;
+            top: 45vh;
             left:calc(50vw - 126.5px);
 
         }
@@ -522,8 +522,166 @@
             left:calc(50vw - 180px);
         }
         .contactUsBtn{
-            bottom: 15vh;
+            bottom: 25vh;
         }
+        .rightToCenter {
+            animation: rightToCenter var(--animTime) var(--animType) forwards;
+
+
+        }
+        @keyframes rightToCenter {
+            from {
+                left: 200vw;
+                
+
+                padding: 5%;
+                transform: rotate(+15deg);
+            }
+
+            to {
+                left: var(--width1);
+                
+                padding: 0%;
+                transform: rotate(0deg);
+            }
+
+        }
+
+        @keyframes centerToRight {
+            to {
+                left: 200%;
+                top: var(--height1);
+
+                padding: 5%;
+                transform: rotate(+15deg);
+            }
+
+            from {
+                left: var(--width1);
+                top: var(--height1);
+                padding: 0%;
+                transform: rotate(0deg);
+            }
+
+        }
+
+
+
+        @keyframes centerToLeft {
+            from {
+                left: var(--width1);
+                top: var(--height1);
+                padding: 0%;
+                transform: rotate(0deg);
+            }
+
+            to {
+                left: -200%;
+                top: var(--height1);
+                padding: 10%;
+                transform: rotate(-15deg);
+            }
+
+        }
+
+        @keyframes leftToCenter {
+            to {
+                left: var(--width1);
+
+                padding: 0%;
+                transform: rotate(0deg);
+            }
+
+            from {
+                left: -200%;
+
+
+                padding: 10%;
+                transform: rotate(-15deg);
+            }
+
+        }
+
+        @keyframes nextToRight {
+            from {
+                left: 300%;
+                
+
+                padding: 5%;
+                transform: rotate(+30deg);
+            }
+
+            to {
+                
+
+                left: 200%;
+                padding: 5%;
+                transform: rotate(+15deg);
+            }
+
+        }
+
+        @keyframes rightToNext {
+            to {
+                left: 200%;
+                top: 200%;
+
+                padding: 5%;
+                transform: rotate(+30deg);
+            }
+
+            from {
+                top: 200%;
+
+                left: 200%;
+                padding: 5%;
+                transform: rotate(+15deg);
+            }
+
+        }
+
+        @keyframes leftToNextL {
+            from {
+                left: -200%;
+                top: 200%;
+                transform: rotate(-15deg);
+                padding: 10%;
+
+            }
+
+            to {
+                left: -300%;
+                top: 70%;
+                transform: rotate(-30deg);
+                padding: 10%;
+
+            }
+
+        }
+
+        @keyframes nextLToLeft {
+            to {
+                left: -200%;
+                top: var(--height1);
+                transform: rotate(-15deg);
+                padding: 10%;
+
+            }
+
+            from {
+                left: -300%;
+                top: 70%;
+                transform: rotate(-30deg);
+                padding: 10%;
+
+            }
+
+        }
+
+
+
+
+
 
         }
     </style>
