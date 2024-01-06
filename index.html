@@ -166,7 +166,7 @@
             padding: 10px;
 
 
-              background-repeat: no-repeat;
+            background-repeat: no-repeat;
             background-size: 100%;
 
             z-index: 5;
@@ -191,12 +191,12 @@
         }
 
         #description {
-            
+
             padding-top: 20px;
-           
+
             text-align: center;
             color: white;
-           
+
         }
 
         .rightToCenter {
@@ -236,7 +236,7 @@
         }
 
         .nextLToLeft {
-            animation: nextLToLeft var(--animTime) var(--animType) backwards;
+            animation: nextLToLeft var(--animTime) var(--animType) forwards;
 
         }
 
@@ -478,9 +478,136 @@
 
             /* tablets */
             :root {
-                --theme: #000000;
+                --width1: 27%;
+
+                --height1: 20%;
+                --imageWidth: 50vw;
+                --imageHeight: calc(var(--imageWidth)*0.575);
+
             }
 
+            .rightDiv {
+
+
+                top: var(--height1);
+
+
+
+            }
+
+            .leftDiv {
+                top: 27%;
+                
+            }
+
+            @keyframes centerToLeft {
+                from {
+                    left: var(--width1);
+                    top: var(--height1);
+
+
+
+
+                    padding: 0%;
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    left: -45%;
+                    top: 27%;
+
+                    padding: 10%;
+                    transform: rotate(-15deg);
+                }
+
+            }
+
+            @keyframes leftToCenter {
+                to {
+                    left: var(--width1);
+                    top: var(--height1);
+
+
+
+
+                    padding: 0%;
+                    transform: rotate(0deg);
+                }
+
+                from {
+                    left: -45%;
+                    top: 27%;
+
+                    padding: 10%;
+                    transform: rotate(-15deg);
+                }
+
+            }
+
+            @keyframes leftToNextL {
+                from {
+                    left: -45%;
+                    top: 27%;
+
+                    padding: 10%;
+                    transform: rotate(-15deg);
+
+                }
+
+                to {
+                    left: -85%;
+                    top: 70%;
+                    transform: rotate(-30deg);
+                    padding: 10%;
+
+                }
+
+            }
+
+            @keyframes nextLToLeft {
+                from {
+                    left: -85%;
+                    top: 70%;
+                    transform: rotate(-30deg);
+                    padding: 10%;
+
+                }
+                to {
+                    left: -45%;
+                    top: 27%;
+                    padding: 10%;
+                
+                    transform: rotate(-15deg);
+
+                }
+
+
+
+            }
+
+
+            .socialbox {
+                display: none;
+            }
+
+            .arrowBox {
+                margin-top: 0;
+                margin-left: 0;
+
+
+                position: fixed;
+                top: 54vh;
+                left: calc(50vw - 126.5px);
+
+            }
+
+            .navigator {
+                left: calc(50vw - 180px);
+            }
+
+            .contactUsBtn {
+                bottom: 20vh;
+            }
         }
 
         @media only screen and (max-width: 600px) {
@@ -502,181 +629,187 @@
                 --height1: 20%;
                 --imageWidth: 70vw;
                 --imageHeight: calc(var(--imageWidth)*0.575);
-                
+
 
             }
-            .socialbox{
+
+            .socialbox {
                 display: none;
             }
+
             .arrowBox {
-            margin-top: 0;
-            margin-left: 0;
-            
-          
-            position: fixed;
-            top: 45vh;
-            left:calc(50vw - 126.5px);
-
-        }
-        .navigator{
-            left:calc(50vw - 180px);
-        }
-        .contactUsBtn{
-            bottom: 25vh;
-        }
-        .rightToCenter {
-            animation: rightToCenter var(--animTime) var(--animType) forwards;
+                margin-top: 0;
+                margin-left: 0;
 
 
-        }
-        @keyframes rightToCenter {
-            from {
-                left: 200vw;
-                
-
-                padding: 5%;
-                transform: rotate(+15deg);
-            }
-
-            to {
-                left: var(--width1);
-                
-                padding: 0%;
-                transform: rotate(0deg);
-            }
-
-        }
-
-        @keyframes centerToRight {
-            to {
-                left: 200%;
-                top: var(--height1);
-
-                padding: 5%;
-                transform: rotate(+15deg);
-            }
-
-            from {
-                left: var(--width1);
-                top: var(--height1);
-                padding: 0%;
-                transform: rotate(0deg);
-            }
-
-        }
-
-
-
-        @keyframes centerToLeft {
-            from {
-                left: var(--width1);
-                top: var(--height1);
-                padding: 0%;
-                transform: rotate(0deg);
-            }
-
-            to {
-                left: -200%;
-                top: var(--height1);
-                padding: 10%;
-                transform: rotate(-15deg);
-            }
-
-        }
-
-        @keyframes leftToCenter {
-            to {
-                left: var(--width1);
-
-                padding: 0%;
-                transform: rotate(0deg);
-            }
-
-            from {
-                left: -200%;
-
-
-                padding: 10%;
-                transform: rotate(-15deg);
-            }
-
-        }
-
-        @keyframes nextToRight {
-            from {
-                left: 300%;
-                
-
-                padding: 5%;
-                transform: rotate(+30deg);
-            }
-
-            to {
-                
-
-                left: 200%;
-                padding: 5%;
-                transform: rotate(+15deg);
-            }
-
-        }
-
-        @keyframes rightToNext {
-            to {
-                left: 200%;
-                top: 200%;
-
-                padding: 5%;
-                transform: rotate(+30deg);
-            }
-
-            from {
-                top: 200%;
-
-                left: 200%;
-                padding: 5%;
-                transform: rotate(+15deg);
-            }
-
-        }
-
-        @keyframes leftToNextL {
-            from {
-                left: -200%;
-                top: 200%;
-                transform: rotate(-15deg);
-                padding: 10%;
+                position: fixed;
+                top: 45vh;
+                left: calc(50vw - 126.5px);
 
             }
 
-            to {
-                left: -300%;
-                top: 70%;
-                transform: rotate(-30deg);
-                padding: 10%;
+            .navigator {
+                left: calc(50vw - 180px);
+            }
+
+            .contactUsBtn {
+                bottom: 25vh;
+            }
+
+            .rightToCenter {
+                animation: rightToCenter var(--animTime) var(--animType) forwards;
+
 
             }
 
-        }
+            @keyframes rightToCenter {
+                from {
+                    left: 200vw;
 
-        @keyframes nextLToLeft {
-            to {
-                left: -200%;
-                top: var(--height1);
-                transform: rotate(-15deg);
-                padding: 10%;
+
+                    padding: 5%;
+                    transform: rotate(+15deg);
+                }
+
+                to {
+                    left: var(--width1);
+
+                    padding: 0%;
+                    transform: rotate(0deg);
+                }
 
             }
 
-            from {
-                left: -300%;
-                top: 70%;
-                transform: rotate(-30deg);
-                padding: 10%;
+            @keyframes centerToRight {
+                to {
+                    left: 200%;
+                    top: var(--height1);
+
+                    padding: 5%;
+                    transform: rotate(+15deg);
+                }
+
+                from {
+                    left: var(--width1);
+                    top: var(--height1);
+                    padding: 0%;
+                    transform: rotate(0deg);
+                }
 
             }
 
-        }
+
+
+            @keyframes centerToLeft {
+                from {
+                    left: var(--width1);
+                    top: var(--height1);
+                    padding: 0%;
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    left: -200%;
+                    top: var(--height1);
+                    padding: 10%;
+                    transform: rotate(-15deg);
+                }
+
+            }
+
+            @keyframes leftToCenter {
+                to {
+                    left: var(--width1);
+
+                    padding: 0%;
+                    transform: rotate(0deg);
+                }
+
+                from {
+                    left: -200%;
+
+
+                    padding: 10%;
+                    transform: rotate(-15deg);
+                }
+
+            }
+
+            @keyframes nextToRight {
+                from {
+                    left: 300%;
+
+
+                    padding: 5%;
+                    transform: rotate(+30deg);
+                }
+
+                to {
+
+
+                    left: 200%;
+                    padding: 5%;
+                    transform: rotate(+15deg);
+                }
+
+            }
+
+            @keyframes rightToNext {
+                to {
+                    left: 200%;
+                    top: 200%;
+
+                    padding: 5%;
+                    transform: rotate(+30deg);
+                }
+
+                from {
+                    top: 200%;
+
+                    left: 200%;
+                    padding: 5%;
+                    transform: rotate(+15deg);
+                }
+
+            }
+
+            @keyframes leftToNextL {
+                from {
+                    left: -200%;
+                    top: 200%;
+                    transform: rotate(-15deg);
+                    padding: 10%;
+
+                }
+
+                to {
+                    left: -300%;
+                    top: 70%;
+                    transform: rotate(-30deg);
+                    padding: 10%;
+
+                }
+
+            }
+
+            @keyframes nextLToLeft {
+                to {
+                    left: -200%;
+                    top: var(--height1);
+                    transform: rotate(-15deg);
+                    padding: 10%;
+
+                }
+
+                from {
+                    left: -300%;
+                    top: 70%;
+                    transform: rotate(-30deg);
+                    padding: 10%;
+
+                }
+
+            }
 
 
 
@@ -744,12 +877,13 @@
     </div>
     <div class="navigator box" id="navigator">
         <br>
-        <div class="navTitle" ><span id="navTitle">Rafiz</span>
-            <div id="description">2023<div style="font-size: 20;"> February</div></div>
+        <div class="navTitle"><span id="navTitle">Rafiz</span>
+            <div id="description">2023<div style="font-size: 20;"> February</div>
+            </div>
         </div>
         <div class="arrowBox"> <img class="leftButton" id="leftButton" src="buttonRight.svg">
-            
-              
+
+
             <img class="rightButton" id="rightButton" src="buttonRight.svg">
         </div>
         <div class="contactUsBtn">
