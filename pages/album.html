@@ -4,7 +4,7 @@
     <title>My Portfolio</title>
     <meta charset="UTF-8">
     <meta http-equiv="expires" content="0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
     <style>
@@ -26,13 +26,13 @@
 
             overflow: hidden;
             font-family: 'Roboto', sans-serif;
-
-            background: url(noises.jpeg);
+            
+            
         }
 
         .full-screen {
 
-            background-color: #2937397e;
+            background-color: #0a0d0e7e;
             height: 100%;
             width: 100%;
             position: absolute;
@@ -41,6 +41,7 @@
 
 
         }
+        
 
         .centerDiv {
 
@@ -189,7 +190,10 @@
             transform: rotate(180deg);
             padding-left: 125px;
         }
-
+        .leftButton2 {
+            transform: rotate(180deg);
+            height: 50px;
+        }
         #description {
 
             padding-top: 20px;
@@ -239,26 +243,7 @@
             animation: nextLToLeft var(--animTime) var(--animType) forwards;
 
         }
-        #go{
-            position: fixed;
-            top:0;
-            left:0;
-            height: 100%;
-            width: 100%;
-            display: none;
-            animation: bottom-to-top 0.5s ;
-            background: url(noise2.jpg);
-            z-index: 1000;
-        }
-        @keyframes bottom-to-top {
-            from{
-                top:100%;
-            }
 
-            to{
-                top:0%;
-            }
-        }
         @keyframes rightToCenter {
             from {
                 left: 85%;
@@ -492,7 +477,32 @@
             border-radius: 50%;
             margin-left: 10px;
         }
-
+        .album{
+            display: flex; 
+        }
+        .album-text{
+            width: 50%;
+            float:left;
+            padding: 120 20 0 20;
+            color: white;
+        }
+        .album-img{
+            height: 100vh;
+            width: 50%;
+            padding: 120 20 0 20;
+            color: white;
+            
+            overflow-y:auto ;
+        }
+        ::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+}
+* {
+  scrollbar-width: none;
+}
         @media only screen and (min-width: 600px) and (max-width: 768px) {
 
             /* tablets */
@@ -842,71 +852,30 @@
 <body>
 
     <div class="full-screen" id="container">
+<div class="album">
+<div class="album-text">
+    <img class="leftButton2"  src="pages/buttonRightRotate.svg">
+    <span style="font-size: 50px;">PHP File Manager</span>
+
+</div>
 
 
-        <!-- <div class="nextL">
-            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
-        <div class="nextL">
-            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
-        <div class="nextL">
-            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div> -->
-        <div class="leftDiv">
+<div class="album-img" style="">
+    <img src="4.jpg" width="90%"><br><br>
+    <img src="1.2.jpg" alt="" width="90%"><br><br><br><br><br><br>
 
-        </div>
-
-
-        <div class="centerDiv">
-            <span class="borderI"> <img src="4.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>
-        </div>
-
-
-        <div class="rightDiv">
-            <span class="borderI"> <img src="1.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>
-        </div>
-
-        <div class="next">
-            <span class="borderI"> <img src="2.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-
-        </div>
-        <div class="next">
-            <span class="borderI"> <img src="3.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
-        <div class="next">
-            <span class="borderI"> <img src="4.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
-        <div class="next">
-            <span class="borderI"> <img src="5.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
-
-
+</div>
+</div>
 
 
 
     </div>
     <div class="navigator box" id="navigator">
         <br>
-        <div class="navTitle"><span id="navTitle">Rafiz</span>
-            <div id="description">2023<div style="font-size: 20;"> February</div>
-            </div>
-        </div>
-        <div class="arrowBox"> <img class="leftButton" id="leftButton" src="buttonRight.svg">
-
-
-            <img class="rightButton" id="rightButton" src="buttonRight.svg">
-        </div>
+       
         <div class="contactUsBtn">
-            <a href="#"> <svg width="128" height="128" viewBox="0 0 128 128" sorry="none"
+            <a href="#"> 
+                <svg width="128" height="128" viewBox="0 0 128 128" sorry="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <style>
@@ -1059,12 +1028,13 @@
             <div class="aboutMe">ABOUT ME</div>
         </a>
         <div class="socialbox">
-            <a href="#"><img src="github.png" class="social"></a>
+            <a href="#"><img src="../github.png" class="social"></a>
 
-            <a href="#"><img src="LinkedinLogo.svg" class="social"></a>
+            <a href="#"><img src="../LinkedinLogo.svg" class="social"></a>
 
-            <a href="#"><img src="FacebookLogo.svg" class="social"></a>
+            <a href="#"><img src="../FacebookLogo.svg" class="social"></a>
         </div>
+       
     </div>
 
     <script>
@@ -1136,30 +1106,30 @@
 
 
         });
-        document.addEventListener("wheel", (event) => {
-            if (event.deltaY > 0) {
-                current++;
-                if (current <= total) {
+        // document.addEventListener("wheel", (event) => {
+        //     if (event.deltaY > 0) {
+        //         current++;
+        //         if (current <= total) {
 
 
 
 
-                    myMove(true);
+        //             myMove(true);
 
 
-                } else {
-                    current = total;
-                }
-            }
-            else {
-                current--;
-                if (current <= 0) {
-                    current = 1;
-                } else {
-                    myMove(false);
-                }
-            }
-        });
+        //         } else {
+        //             current = total;
+        //         }
+        //     }
+        //     else {
+        //         current--;
+        //         if (current <= 0) {
+        //             current = 1;
+        //         } else {
+        //             myMove(false);
+        //         }
+        //     }
+        // });
 
 
         scroller();
@@ -1304,18 +1274,7 @@
         
 
     </script>
-<div id="go">
 
-
-</div>
-<script>async function go(params) {
-      document.getElementById("go").style.display="block";
-      let x = await fetch(params);
-  let y = await x.text();
-  document.getElementById("go").innerHTML=y;
-}
-  
-</script>
 </body>
 
 </html>
