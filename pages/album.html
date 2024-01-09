@@ -478,7 +478,8 @@
             margin-left: 10px;
         }
         .album{
-            display: flex; 
+            box-sizing: border-box;
+            display: flex;
         }
         .album-text{
             width: 50%;
@@ -489,6 +490,7 @@
         .album-img{
             height: 100vh;
             width: 50%;
+            float:left;
             padding: 120 20 0 20;
             color: white;
             
@@ -637,6 +639,22 @@ html {
             .contactUsBtn {
                 bottom: 20vh;
             }
+
+
+            .album-text,.album-img{
+            width: 100%;
+
+            
+        }
+        .album{
+            display: block;
+        }
+        .album-img{
+            
+            width: 100%;
+            
+        }
+
         }
 
         @media only screen and (max-width: 600px) {
@@ -690,7 +708,7 @@ html {
 
 
             }
-
+           
             @keyframes rightToCenter {
                 from {
                     left: 200vw;
@@ -854,7 +872,7 @@ html {
     <div class="full-screen" id="container">
 <div class="album">
 <div class="album-text">
-    <img class="leftButton2"  src="pages/buttonRightRotate.svg">
+    <a href="javascript:go('')"><img class="leftButton2"  src="pages/buttonRightRotate.svg"></a>
     <span style="font-size: 50px;">PHP File Manager</span>
 
 </div>

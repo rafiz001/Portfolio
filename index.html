@@ -246,9 +246,13 @@
             height: 100%;
             width: 100%;
             display: none;
-            animation: bottom-to-top 0.5s ;
+            animation: bottom-to-top 1.0s ;
+            
             background: url(noise2.jpg);
             z-index: 1000;
+        }
+        .close{
+            animation: top-to-bottom 1.0s ease forwards !important;
         }
         @keyframes bottom-to-top {
             from{
@@ -256,6 +260,15 @@
             }
 
             to{
+                top:0%;
+            }
+        }
+        @keyframes top-to-bottom {
+            to{
+                top:100%;
+            }
+
+            from{
                 top:0%;
             }
         }
@@ -1308,11 +1321,25 @@
 
 
 </div>
-<script>async function go(params) {
-      document.getElementById("go").style.display="block";
-      let x = await fetch(params);
+<script>
+async function  fetcher(link,element) {
+    let x = await fetch(link);
   let y = await x.text();
-  document.getElementById("go").innerHTML=y;
+  document.getElementById(element).innerHTML=y;
+}
+ function go(params) {
+    if(params!=""){  
+        if(document.getElementById("go").classList.contains("close")){
+            document.getElementById("go").classList.remove("close");  
+        }
+    document.getElementById("go").style.display="block";
+      fetcher(params,"go");
+    }
+    else{
+        document.getElementById("go").classList.add("close");
+       // document.getElementById("go").style.display="none";
+    }
+     
 }
   
 </script>
