@@ -27,17 +27,18 @@
             overflow: hidden;
             font-family: 'Roboto', sans-serif;
 
-            background: url(noises.jpeg);
+            background: black;
         }
 
         .full-screen {
 
-            background-color: #2937397e;
+            background-color: black;
             height: 100%;
             width: 100%;
             position: absolute;
             top: 0;
             left: 0;
+            
 
 
         }
@@ -241,18 +242,27 @@
         }
         #go{
             position: fixed;
-            top:0;
+            top:100px;
             left:0;
             height: 100%;
-            width: 100%;
+            /* width: 100vw; */
+            padding: 0px 30px;
             display: none;
             animation: bottom-to-top 1.0s ;
-            
-            background: url(noise2.jpg);
-            z-index: 1000;
+            color: white;
+            background: black;/*url(noises.jpeg);*/
+            z-index: 7;
         }
         .close{
             animation: top-to-bottom 1.0s ease forwards !important;
+        }
+        .topMost {position:fixed;z-index: 50;top: 10;left:0;color:white}
+        .leftButton2 {
+            transform: rotate(180deg);
+            height: 50px;
+        }
+        .item-text-large{
+            display: flex;height: 100%;padding-top: 30px;
         }
         @keyframes bottom-to-top {
             from{
@@ -260,7 +270,7 @@
             }
 
             to{
-                top:0%;
+                top:100px;
             }
         }
         @keyframes top-to-bottom {
@@ -269,7 +279,7 @@
             }
 
             from{
-                top:0%;
+                top:100px;
             }
         }
         @keyframes rightToCenter {
@@ -439,6 +449,7 @@
 
             display: flex;
             align-items: center;
+            z-index: 100000000;
 
         }
 
@@ -844,11 +855,36 @@
             }
 
 
+            .item-text-large
+            {
+                display: block;
 
+            }
 
 
 
         }
+
+
+        /* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
     </style>
 </head>
 
@@ -918,6 +954,24 @@
 
             <img class="rightButton" id="rightButton" src="buttonRight.svg">
         </div>
+        <div id="go">
+        <div style="display: flex;align-items: center;">
+            <a  href="javascript:go('')"><img class="leftButton2"  src="pages/buttonRightRotate.svg"></a>
+            <span style="font-size: 50px;">PHP File Manager</span>
+        </div>  
+        <div class="item-text-large">
+            <div style="flex: 1; margin-bottom: 30px;">
+                There are many online file managers on web. But none of them I feel so secure and easy to use with some extra features. So I created this. In this file manager anyone can also execute their SQLite Database, can copy files from another web into own host and much more.
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; overflow-y: scroll;gap: 30px;">
+                <img src="1.jpg" alt="" width="70%">
+                <img src="2.jpg" alt="" width="70%">
+                <img src="3.jpg" alt="" width="70%">
+            </div>
+        
+        </div>  
+        </div>
+        <div class="topMost">
         <div class="contactUsBtn">
             <a href="#"> <svg width="128" height="128" viewBox="0 0 128 128" sorry="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -1063,9 +1117,10 @@
 
 
 
-        <div class="author" onmouseover="imghover()" onmouseout="imgreleas()">
+        <div  class=" author " onmouseover="imghover()" onmouseout="imgreleas()">
             <div class="imgCont"><img class="authorImg" src="authr.png"></div>
             <span class="authorText">Md. Rafiz Uddin</span>
+        
         </div>
 
         <a href="#">
@@ -1079,7 +1134,9 @@
             <a href="#"><img src="FacebookLogo.svg" class="social"></a>
         </div>
     </div>
-
+        
+    </div>
+   
     <script>
         function hoverd() {
             var outer = document.getElementsByClassName("h")[0];
@@ -1317,10 +1374,7 @@
         
 
     </script>
-<div id="go">
 
-
-</div>
 <script>
 async function  fetcher(link,element) {
     let x = await fetch(link);
@@ -1333,7 +1387,7 @@ async function  fetcher(link,element) {
             document.getElementById("go").classList.remove("close");  
         }
     document.getElementById("go").style.display="block";
-      fetcher(params,"go");
+     // fetcher(params,"go");
     }
     else{
         document.getElementById("go").classList.add("close");
