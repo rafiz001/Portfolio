@@ -252,6 +252,7 @@
             color: white;
             background: black;/*url(noises.jpeg);*/
             z-index: 7;
+            
         }
         .close{
             animation: top-to-bottom 1.0s ease forwards !important;
@@ -263,6 +264,12 @@
         }
         .item-text-large{
             display: flex;height: 100%;padding-top: 30px;
+        }
+        .projectTitle{
+            font-size: 50px;
+        }
+        .gallery-on-mobile{
+            height: calc(100% - 200px);
         }
         @keyframes bottom-to-top {
             from{
@@ -686,7 +693,7 @@
 
 
                 position: fixed;
-                top: 45vh;
+                top: 48vh;
                 left: calc(50vw - 126.5px);
 
             }
@@ -696,7 +703,7 @@
             }
 
             .contactUsBtn {
-                bottom: 25vh;
+                bottom: 20vh;
             }
 
             .rightToCenter {
@@ -858,33 +865,27 @@
             .item-text-large
             {
                 display: block;
-
+                height: 100vh;
+                overflow-y: scroll;
             }
+            .projectTitle{
+                font-size: 30px;
+            }
+            .gallery-on-mobile{
+                height: unset;
+            }
+        
 
 
 
         }
 
 
-        /* width */
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 10px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
     </style>
 </head>
 
@@ -957,16 +958,21 @@
         <div id="go">
         <div style="display: flex;align-items: center;">
             <a  href="javascript:go('')"><img class="leftButton2"  src="pages/buttonRightRotate.svg"></a>
-            <span style="font-size: 50px;">PHP File Manager</span>
+            <span class="projectTitle" >PHP File Manager</span>
         </div>  
         <div class="item-text-large">
             <div style="flex: 1; margin-bottom: 30px;">
                 There are many online file managers on web. But none of them I feel so secure and easy to use with some extra features. So I created this. In this file manager anyone can also execute their SQLite Database, can copy files from another web into own host and much more.
+                There are many online file managers on web. But none of them I feel so secure and easy to use with some extra features. So I created this. In this file manager anyone can also execute their SQLite Database, can copy files from another web into own host and much more.
+                There are many online file managers on web. But none of them I feel so secure and easy to use with some extra features. So I created this. In this file manager anyone can also execute their SQLite Database, can copy files from another web into own host and much more.
+                There are many online file managers on web. But none of them I feel so secure and easy to use with some extra features. So I created this. In this file manager anyone can also execute their SQLite Database, can copy files from another web into own host and much more.
             </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; overflow-y: scroll;gap: 30px;">
-                <img src="1.jpg" alt="" width="70%">
-                <img src="2.jpg" alt="" width="70%">
-                <img src="3.jpg" alt="" width="70%">
+            <div class="gallery-on-mobile" style="flex: 1; display: flex; flex-direction: column; align-items: center; overflow-y: scroll;gap: 30px;">
+                <img src="1.jpg" alt="" width="70%"/>
+                <img src="2.jpg" alt="" width="70%"/>
+                <img src="3.jpg" alt="" width="70%"/>
+                <div style="height: 500px; width: 10px;"></div>
+                
             </div>
         
         </div>  
