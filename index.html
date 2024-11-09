@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
@@ -243,16 +242,45 @@
         #go{
             position: fixed;
             top:100px;
-            left:0;
+            left:0px;
             height: 100%;
             /* width: 100vw; */
             padding: 0px 30px;
             display: none;
             animation: bottom-to-top 1.0s ;
             color: white;
-            background: black;/*url(noises.jpeg);*/
+            background: black;
             z-index: 7;
             
+        }
+        #aboutMe{
+            position: fixed;
+            top:0px;
+            left:0px;
+            height: 100%;
+            width: 100vw;
+            padding: 90px 30px;
+            display: none;
+            animation: right-to-left 1.0s ;
+            color: white;
+            background: black;
+            z-index: 8;
+        }
+        #contactMe{
+            position: fixed;
+            top:0px;
+            left:0px;
+            height: 100%;
+            width: 100vw;
+            padding: 90px 30px;
+            display: none;
+            animation: right-to-left 1.0s ;
+            color: white;
+            background: black;
+            z-index: 8;
+        }
+        .aboute-close{
+            animation: left-to-right 1.0s ease forwards !important;
         }
         .close{
             animation: top-to-bottom 1.0s ease forwards !important;
@@ -270,6 +298,31 @@
         }
         .gallery-on-mobile{
             height: calc(100% - 200px);
+        }
+        .abouteText{
+
+            padding: 30px 10vw 0 0;
+        }
+        .abouteText a,.item-text-large a{
+            color: var(--theme);
+        }
+        @keyframes right-to-left {
+            from{
+                left:100vw;
+            }
+
+            to{
+                left: 0vw;
+            }
+        }
+        @keyframes left-to-right {
+            from{
+                left:0vw;
+            }
+
+            to{
+                left: 100vw;
+            }
         }
         @keyframes bottom-to-top {
             from{
@@ -874,6 +927,9 @@
             .gallery-on-mobile{
                 height: unset;
             }
+            .abouteText{
+            padding: 10px 20vw 0 0 ;
+        }
         
 
 
@@ -887,6 +943,39 @@
 
 
     </style>
+    <script>
+        const projects = 
+        [
+            {
+                name:"PHP file manager",
+                month: "January",
+                year: "2021",
+                img:["FM.png","FM_editor.png","FM_mobile.png"],
+                txt:`This PHP File Manager is a custom-built web application developed to simplify file management tasks on a server. Designed with a user-friendly interface, it enables users to upload, view, edit, delete, and organize files efficiently. The project is coded in PHP and utilizes HTML, CSS, and JavaScript for a responsive UI, ensuring a seamless experience across devices. This file manager also includes essential security features to handle files safely, making it a lightweight yet powerful tool for web administrators and developers needing easy server file management. Explore the code and functionality on <a href="https://github.com/rafiz001/php-file-manager" target="_blank">GitHub</a>.`,
+            },
+            {
+                name:"Sheet Routine",
+                month: "August",
+                year: "2024",
+                img:["sheet_routine.png","sheet_routine_config.png",],
+                txt:`The Sheet Routine project is a web-based application designed to simplify the management and scheduling of routines, particularly useful for educational and organizational settings. Built using PHP and JavaScript, it provides an intuitive interface for creating, viewing, and editing schedules in a tabular format similar to a spreadsheet. This tool offers flexible customization options, allowing users to adapt it to various routine management needs, from academic timetables to organizational work schedules. With an efficient backend and a responsive design, Sheet Routine is a valuable asset for users looking to streamline their scheduling tasks. Check out the project on <a href="https://github.com/rafiz001/sheet-routine" target="_blank">GitHub</a> and <a href="https://rafiz001.github.io/sheet-routine/" target="_blank">Live Preview</a>. `,
+            },
+            {
+                name:"URL Shortner",
+                month: "August",
+                year: "2022",
+                img:["url-shortner.png","url-shortner2.png",],
+                txt:`The PHP URL Shortener is a lightweight application designed to create shortened, shareable links quickly and easily. Built with PHP, this tool allows users to generate custom short URLs, making long and complex links more manageable for sharing on social media or in messaging. The application includes a simple, user-friendly interface, where users can input a URL to instantly receive a shortened version. Additionally, the tool tracks link statistics, enabling users to monitor the number of clicks on each short URL. Explore the code and try it out on <a href="https://github.com/rafiz001/php-URL-shortner" target="_blank">GitHub</a>.`,
+            },
+            {
+                name:"Cover Page",
+                month: "October",
+                year: "2023",
+                img:["cover-photo.png"],
+                txt:`The Cover Page project provides customizable, template-based cover pages ideal for academic, professional, or creative documents. Developed to simplify the process of creating visually appealing and standardized covers, this project includes a variety of templates that can be easily tailored with personal information, logos, or branding elements. Designed with HTML and CSS, it ensures clean formatting and allows users to adapt each template's style to fit different needs. This project is particularly useful for students, researchers, and professionals aiming to add a polished look to their documents. Check it out on <a href="https://github.com/rafiz001/Cover-Page/" target="_blank">GitHub</a> and <a href="https://rafiz001.github.io/Cover-Page/" target="_blank">Live Preview</a>.`,
+            }
+        ]
+    </script>
 </head>
 
 <body>
@@ -894,54 +983,50 @@
     <div class="full-screen" id="container">
 
 
-        <!-- <div class="nextL">
-            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
-        <div class="nextL">
-            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
-        <div class="nextL">
-            <span class="borderI"> <img src="2.jpg" alt="" class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div> -->
+        
         <div class="leftDiv">
 
         </div>
 
 
         <div class="centerDiv">
-            <span class="borderI"> <img src="4.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>
+
         </div>
 
 
         <div class="rightDiv">
-            <span class="borderI"> <img src="1.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>
+            
         </div>
 
-        <div class="next">
-            <span class="borderI"> <img src="2.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-
-        </div>
-        <div class="next">
-            <span class="borderI"> <img src="3.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
-        <div class="next">
-            <span class="borderI"> <img src="4.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
-        <div class="next">
-            <span class="borderI"> <img src="5.jpg" alt="" onclick='go("pages/album.html?p=4")' class="itemimg"></span>
-            <span class="borderII"><img src="1.2.jpg" class="item2img">4</span>
-        </div>
+        <span id="next">
+        
+    </span>
 
 
+        <script>
+            const centerD = document.querySelector(".centerDiv");
+            const rightD = document.querySelector(".rightDiv");
+            const nextD = document.querySelector("#next");
 
-
+            centerD.innerHTML = 
+            `<span class="borderI"> <img src="images/${projects[0].img[0]}" alt="" onclick='go(0)' class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>`;
+            rightD.innerHTML = 
+            `<span class="borderI"> <img src="images/${projects[1].img[0]}" alt="" onclick='go(1)' class="itemimg"></span>
+            <span class="borderII"><img src="1.2.jpg" class="item2img"></span>`;
+            
+            for (let index = 2; index < projects.length; index++) {
+                nextD.innerHTML += 
+                `
+                <div class="next">
+                    <span class="borderI"> <img src="images/${projects[index].img[0]}" alt="" onclick='go("${index}")' class="itemimg"></span>
+                    <span class="borderII"><img src="1.2.jpg" class="item2img"></span>
+                </div>
+                `;
+                
+                
+            }
+        </script>
 
     </div>
     <div class="navigator box" id="navigator">
@@ -957,29 +1042,40 @@
         </div>
         <div id="go">
         <div style="display: flex;align-items: center;">
-            <a  href="javascript:go('')"><img class="leftButton2"  src="pages/buttonRightRotate.svg"></a>
-            <span class="projectTitle" >PHP File Manager</span>
+            <a  href="javascript:go(-1)"><img class="leftButton2"  src="pages/buttonRightRotate.svg"></a>
+            <span class="projectTitle" ></span>
         </div>  
         <div class="item-text-large">
-            <div style="flex: 1; margin-bottom: 30px;">
-                There are many online file managers on web. But none of them I feel so secure and easy to use with some extra features. So I created this. In this file manager anyone can also execute their SQLite Database, can copy files from another web into own host and much more.
-                There are many online file managers on web. But none of them I feel so secure and easy to use with some extra features. So I created this. In this file manager anyone can also execute their SQLite Database, can copy files from another web into own host and much more.
-                There are many online file managers on web. But none of them I feel so secure and easy to use with some extra features. So I created this. In this file manager anyone can also execute their SQLite Database, can copy files from another web into own host and much more.
-                There are many online file managers on web. But none of them I feel so secure and easy to use with some extra features. So I created this. In this file manager anyone can also execute their SQLite Database, can copy files from another web into own host and much more.
+            <div style="flex: 1; margin-bottom: 30px;" id="projectText">
             </div>
             <div class="gallery-on-mobile" style="flex: 1; display: flex; flex-direction: column; align-items: center; overflow-y: scroll;gap: 30px;">
-                <img src="1.jpg" alt="" width="70%"/>
-                <img src="2.jpg" alt="" width="70%"/>
-                <img src="3.jpg" alt="" width="70%"/>
-                <div style="height: 500px; width: 10px;"></div>
+
                 
             </div>
         
         </div>  
         </div>
-        <div class="topMost">
-        <div class="contactUsBtn">
-            <a href="#"> <svg width="128" height="128" viewBox="0 0 128 128" sorry="none"
+        <div id="aboutMe">
+            <div style="display: flex;align-items: center;">
+                <a  href="javascript:aboutme()"><img class="leftButton2"  src="pages/buttonRightRotate.svg"></a>
+                <span class="projectTitle" >About Me</span>
+            </div>  
+            
+            <div class="abouteText">Hello! I'm MD. Rafiz Uddin, a passionate Computer Science and Engineering student at Varendra University. With a strong foundation in programming and an eagerness to explore emerging technologies, I am dedicated to building efficient and innovative software solutions. I am continuously learning and honing my skills through hands-on projects and competitive programming, where I frequently use Java. My recent interest in frontend development has led me to dive into React, and I enjoy collaborating on open-source projects on GitHub. Check out my work and feel free to connect on <a target="_blank" href="https://github.com/rafiz001">GitHub</a>.
+            </div>
+            </div>
+        <div id="contactMe">
+            <div style="display: flex;align-items: center;">
+                <a  href="javascript:contactme()"><img class="leftButton2"  src="pages/buttonRightRotate.svg"></a>
+                <span class="projectTitle" >Contact Me</span>
+            </div>  
+            
+            <div class="abouteText">Hello! Sir, To reach me out just send me an email at <a target="_blank" href="mailto:rafiz001@protonmail.ch">rafiz001@protonmail.ch</a>.
+            </div>
+            </div>
+        
+        <div class="contactUsBtn" on>
+            <a href="javascript:contactme()"> <svg width="128" height="128" viewBox="0 0 128 128" sorry="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <style>
@@ -1121,7 +1217,7 @@
 
         </div>
 
-
+        <div class="topMost">
 
         <div  class=" author " onmouseover="imghover()" onmouseout="imgreleas()">
             <div class="imgCont"><img class="authorImg" src="authr.png"></div>
@@ -1129,21 +1225,22 @@
         
         </div>
 
-        <a href="#">
+        <a href="javascript:aboutme()">
             <div class="aboutMe">ABOUT ME</div>
         </a>
         <div class="socialbox">
-            <a href="#"><img src="github.png" class="social"></a>
+            <a target="_blank" href="https://github.com/rafiz001/"><img src="github.png" class="social"></a>
 
-            <a href="#"><img src="LinkedinLogo.svg" class="social"></a>
+            <a target="_blank" href="https://bd.linkedin.com/in/rafiz001"><img src="LinkedinLogo.svg" class="social"></a>
 
-            <a href="#"><img src="FacebookLogo.svg" class="social"></a>
+            <a target="_blank" href="https://facebook.com/rafizuddin001"><img src="FacebookLogo.svg" class="social"></a>
         </div>
     </div>
         
     </div>
    
     <script>
+        
         function hoverd() {
             var outer = document.getElementsByClassName("h")[0];
             //outer.style.transiton="1s";
@@ -1285,9 +1382,15 @@
 
 
 
-
+        function dateSetter()
+        {
+            const info = document.querySelector("#description");
+            info.innerHTML = `${projects[current-1].year}<div style="font-size: 20;"> ${projects[current-1].month}`;
+        }
+        dateSetter();
 
         function myMove(isRight) {
+            dateSetter();
             if (current <= total && current > 0) {
                 scroller();
 
@@ -1382,18 +1485,28 @@
     </script>
 
 <script>
-async function  fetcher(link,element) {
-    let x = await fetch(link);
-  let y = await x.text();
+async function  fetcher(number) {
+   const projectTitle = document.querySelector(".projectTitle");
+   projectTitle.innerHTML=projects[number].name;
+   
+   const projectText = document.querySelector("#projectText");
+   projectText.innerHTML=projects[number].txt;
+
+   
+   const galleryOnMobile = document.querySelector(".gallery-on-mobile");
+   galleryOnMobile.innerHTML=projects[number].img.map((v,i)=>`<img src="images/${v}" alt="" width="70%"/>`).join("\n");
+    galleryOnMobile.innerHTML+=`<div style="height: 500px; width: 10px;"></div>`;
+    
+
   document.getElementById(element).innerHTML=y;
 }
  function go(params) {
-    if(params!=""){  
+    if(params!=-1){  
         if(document.getElementById("go").classList.contains("close")){
             document.getElementById("go").classList.remove("close");  
         }
     document.getElementById("go").style.display="block";
-     // fetcher(params,"go");
+     fetcher(params);
     }
     else{
         document.getElementById("go").classList.add("close");
@@ -1401,6 +1514,45 @@ async function  fetcher(link,element) {
     }
      
 }
+let aboutmeToggle=true;
+let contactmeToggle=true;
+function aboutme() 
+{
+    if(aboutmeToggle==true)
+    {
+        if(document.getElementById("aboutMe").classList.contains("aboute-close"))
+        {
+            document.getElementById("aboutMe").classList.remove("aboute-close");  
+        }
+        document.getElementById("aboutMe").style.display="block";
+        aboutmeToggle=false;
+     
+    }
+    else
+    {
+        document.getElementById("aboutMe").classList.add("aboute-close");
+        aboutmeToggle=true;
+    }
+}
+function contactme() 
+{
+    if(contactmeToggle==true)
+    {
+        if(document.getElementById("contactMe").classList.contains("aboute-close"))
+        {
+            document.getElementById("contactMe").classList.remove("aboute-close");  
+        }
+        document.getElementById("contactMe").style.display="block";
+        contactmeToggle=false;
+     
+    }
+    else
+    {
+        document.getElementById("contactMe").classList.add("aboute-close");
+        contactmeToggle=true;
+    }
+}
+
   
 </script>
 </body>
